@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import pagePageInitialPropsTqGvResource from '../../../resources/page-page-initial-props-tq_gv'
-import pagePageInitialPathsTqGgResource from '../../../resources/page-page-initial-paths-tq_gg'
+import pagePageInitialPropsTqDwResource from '../../../resources/page-page-initial-props-tq_dw'
+import pagePageInitialPathsTqRYResource from '../../../resources/page-page-initial-paths-tq_r-y'
 
 const Page1 = (props) => {
   return (
@@ -62,7 +62,7 @@ export default Page1
 
 export async function getStaticProps(context) {
   try {
-    const response = await pagePageInitialPropsTqGvResource({
+    const response = await pagePageInitialPropsTqDwResource({
       ...context?.params,
     })
     if (!response) {
@@ -75,7 +75,7 @@ export async function getStaticProps(context) {
         pageEntities: response,
         ...response?.meta,
       },
-      revalidate: 60,
+      revalidate: 10,
     }
   } catch (error) {
     return {
@@ -86,7 +86,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await pagePageInitialPathsTqGgResource({})
+    const response = await pagePageInitialPathsTqRYResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)

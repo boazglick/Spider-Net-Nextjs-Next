@@ -9,7 +9,7 @@ import {
 } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqQtResource from '../../resources/post-page-initial-props-tq_qt'
+import postPageInitialPropsTqF3Resource from '../../resources/post-page-initial-props-tq_f3'
 
 const Post1 = (props) => {
   return (
@@ -102,7 +102,7 @@ export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqQtResource({
+    const response = await postPageInitialPropsTqF3Resource({
       ...context?.params,
     })
     if (!response) {
@@ -115,7 +115,7 @@ export async function getStaticProps(context) {
         postEntities: response,
         ...response?.meta,
       },
-      revalidate: 60,
+      revalidate: 10,
     }
   } catch (error) {
     return {

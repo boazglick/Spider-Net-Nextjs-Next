@@ -634,6 +634,11 @@ const Home = (props) => {
             .home-image3 {
               margin-bottom: var(--dl-space-space-unit);
             }
+            .home-container5 {
+              align-items: center;
+              flex-direction: column;
+              justify-content: center;
+            }
             .home-text5 {
               margin-left: 0px;
               margin-right: 0px;
