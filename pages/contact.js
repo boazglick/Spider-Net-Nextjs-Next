@@ -91,9 +91,10 @@ const Contact = (props) => {
             </div>
           </div>
         </header>
-        <div className="contact-head-title">
+        <div className="contact-top-title">
           <span className="contact-text2">צרו קשר</span>
         </div>
+        <div className="contact-container3"></div>
       </div>
       <style jsx>
         {`
@@ -255,7 +256,7 @@ const Contact = (props) => {
             height: var(--dl-size-size-xsmall);
             margin-left: var(--dl-space-space-unit);
           }
-          .contact-head-title {
+          .contact-top-title {
             flex: 0 0 auto;
             width: 100%;
             height: 250px;
@@ -272,6 +273,15 @@ const Contact = (props) => {
             font-style: normal;
             font-family: 'Heebo';
             font-weight: 900;
+          }
+          .contact-container3 {
+            flex: 0 0 auto;
+            width: 100%;
+            border: 2px dashed rgba(120, 120, 120, 0.4);
+            height: var(--dl-size-size-xxlarge);
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
           }
           @media (max-width: 1600px) {
             .contact-text2 {

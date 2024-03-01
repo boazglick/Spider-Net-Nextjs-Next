@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqTXResource from '../../resources/attachment-page-initial-props-tq_t-x'
+import attachmentPageInitialPropsTq1jResource from '../../resources/attachment-page-initial-props-tq_1j'
 
 const Attachment = (props) => {
   return (
@@ -22,15 +22,7 @@ const Attachment = (props) => {
                 renderItem={(AttachmentEntities) => (
                   <>
                     <div className="attachment-container1">
-                      <h1 className="attachment-text">
-                        {AttachmentEntities?.title?.rendered}
-                      </h1>
-                      <img
-                        alt="image"
-                        src={AttachmentEntities?.source_url}
-                        className="attachment-image"
-                      />
-                      <span>{AttachmentEntities?.author}</span>
+                      <h1>{AttachmentEntities?.title?.rendered}</h1>
                     </div>
                   </>
                 )}
@@ -41,8 +33,6 @@ const Attachment = (props) => {
           persistDataDuringLoading={true}
           key={props?.pagination?.page}
         />
-        <></>
-        <div className="attachment-container2"></div>
       </div>
       <style jsx>
         {`
@@ -60,22 +50,6 @@ const Attachment = (props) => {
             display: flex;
             align-items: center;
             flex-direction: column;
-          }
-          .attachment-text {
-            font-size: 1em;
-          }
-          .attachment-image {
-            width: 150px;
-            object-fit: cover;
-          }
-          .attachment-container2 {
-            flex: 0 0 auto;
-            width: 100%;
-            border: 2px dashed rgba(120, 120, 120, 0.4);
-            display: grid;
-            align-items: flex-start;
-            flex-direction: column;
-            grid-template-columns: repeat(4, 1fr);
           }
         `}
       </style>
@@ -95,7 +69,7 @@ export default Attachment
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqTXResource({
+    const response = await attachmentPageInitialPropsTq1jResource({
       ...context?.params,
     })
     if (!response) {

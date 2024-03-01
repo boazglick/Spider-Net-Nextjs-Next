@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqGhResource from '../../../resources/attachment-page-initial-props-tq_gh'
-import attachmentPageInitialPathsTqJfResource from '../../../resources/attachment-page-initial-paths-tq_jf'
+import attachmentPageInitialPropsTqZZResource from '../../../resources/attachment-page-initial-props-tq_z-z'
+import attachmentPageInitialPathsTqLzResource from '../../../resources/attachment-page-initial-paths-tq_lz'
 
 const Attachment1 = (props) => {
   return (
@@ -23,15 +23,7 @@ const Attachment1 = (props) => {
                 renderItem={(AttachmentEntities) => (
                   <>
                     <div className="attachment1-container1">
-                      <h1 className="attachment1-text">
-                        {AttachmentEntities?.title?.rendered}
-                      </h1>
-                      <img
-                        alt="image"
-                        src={AttachmentEntities?.source_url}
-                        className="attachment1-image"
-                      />
-                      <span>{AttachmentEntities?.author}</span>
+                      <h1>{AttachmentEntities?.title?.rendered}</h1>
                     </div>
                   </>
                 )}
@@ -42,8 +34,6 @@ const Attachment1 = (props) => {
           persistDataDuringLoading={true}
           key={props?.pagination?.page}
         />
-        <></>
-        <div className="attachment1-container2"></div>
       </div>
       <style jsx>
         {`
@@ -61,22 +51,6 @@ const Attachment1 = (props) => {
             display: flex;
             align-items: center;
             flex-direction: column;
-          }
-          .attachment1-text {
-            font-size: 1em;
-          }
-          .attachment1-image {
-            width: 150px;
-            object-fit: cover;
-          }
-          .attachment1-container2 {
-            flex: 0 0 auto;
-            width: 100%;
-            border: 2px dashed rgba(120, 120, 120, 0.4);
-            display: grid;
-            align-items: flex-start;
-            flex-direction: column;
-            grid-template-columns: repeat(4, 1fr);
           }
         `}
       </style>
@@ -96,7 +70,7 @@ export default Attachment1
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqGhResource({
+    const response = await attachmentPageInitialPropsTqZZResource({
       ...context?.params,
     })
     if (!response) {
@@ -120,10 +94,10 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await attachmentPageInitialPathsTqJfResource({})
+    const response = await attachmentPageInitialPathsTqLzResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
-    const pagesCount = Math.ceil(totalCount / 20)
+    const pagesCount = Math.ceil(totalCount / 10)
     return {
       paths: Array.from(
         {

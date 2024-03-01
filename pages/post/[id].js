@@ -5,30 +5,27 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqT6Resource from '../../resources/post-page-initial-props-tq_t6'
-import postPageInitialPathsTqIPResource from '../../resources/post-page-initial-paths-tq_i-p'
+import postPageInitialPropsTqFGResource from '../../resources/post-page-initial-props-tq_f-g'
+import postPageInitialPathsTqNtResource from '../../resources/post-page-initial-paths-tq_nt'
 
-const Post = (props) => {
+const Post11 = (props) => {
   return (
     <>
-      <div className="post-container">
+      <div className="post11-container">
         <Head>
-          <title>Post - Spider Net Nextjs</title>
-          <meta property="og:title" content="Post - Spider Net Nextjs" />
+          <title>Post1 - Spider Net Nextjs</title>
+          <meta property="og:title" content="Post1 - Spider Net Nextjs" />
         </Head>
         <DataProvider
           renderSuccess={(PostEntity) => (
             <>
-              <div className="post-container1">
+              <div className="post11-container1">
                 <h1>{PostEntity?.title?.rendered}</h1>
-                <div className="post-container2">
+                <div className="post11-container2">
                   <Script
                     html={PostEntity?.content?.rendered}
-                    className="post-html-node"
+                    className="post11-html-node"
                   ></Script>
-                </div>
-                <div>
-                  <Script html={PostEntity?.excerpt?.rendered}></Script>
                 </div>
               </div>
             </>
@@ -40,26 +37,25 @@ const Post = (props) => {
       </div>
       <style jsx>
         {`
-          .post-container {
+          .post11-container {
             width: 100%;
             display: flex;
             overflow: auto;
-            direction: rtl;
             min-height: 100vh;
             align-items: center;
             flex-direction: column;
           }
-          .post-container1 {
+          .post11-container1 {
             gap: 12px;
             width: 100%;
             display: flex;
             flex-direction: column;
           }
-          .post-container2 {
+          .post11-container2 {
             width: 100%;
             align-self: stretch;
           }
-          .post-html-node {
+          .post11-html-node {
             width: 100%;
             align-self: stretch;
           }
@@ -69,19 +65,19 @@ const Post = (props) => {
   )
 }
 
-Post.defaultProps = {
+Post11.defaultProps = {
   postEntity: [],
 }
 
-Post.propTypes = {
+Post11.propTypes = {
   postEntity: PropTypes.array,
 }
 
-export default Post
+export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqT6Resource({
+    const response = await postPageInitialPropsTqFGResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -105,7 +101,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqIPResource({})
+    const response = await postPageInitialPathsTqNtResource({})
     return {
       paths: (response || []).map((item) => {
         return {
