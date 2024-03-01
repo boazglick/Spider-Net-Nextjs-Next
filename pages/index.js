@@ -138,6 +138,7 @@ const Home = (props) => {
                                         ProductListImageHome?.source_url ||
                                         'https://images.unsplash.com/photo-1607827448387-a67db1383b59?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDd8fHBsYWNlSG9sZGVyfGVufDB8fHx8MTcwOTMyNTkxOHww&ixlib=rb-4.0.3&h=300'
                                       }
+                                      loading="lazy"
                                       className="home-image2"
                                     />
                                   </>

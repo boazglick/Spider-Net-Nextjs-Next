@@ -139,18 +139,18 @@ const SinglePostComp = (props) => {
 
 SinglePostComp.defaultProps = {
   imageAlt: 'image',
+  rootClassName: '',
   text: 'text',
   prefix: 'פורסם בתאריך: \n',
   heading: 'text',
-  rootClassName: '',
 }
 
 SinglePostComp.propTypes = {
   imageAlt: PropTypes.string,
+  rootClassName: PropTypes.string,
   text: PropTypes.string,
   prefix: PropTypes.string,
   heading: PropTypes.string,
-  rootClassName: PropTypes.string,
 }
 
 export default SinglePostComp

@@ -439,7 +439,7 @@ const Contact = (props) => {
           }
           @media (max-width: 1600px) {
             .contact-text2 {
-              color: var(--dl-color-gray-900);
+              color: #111111;
               font-size: 4em;
               font-style: normal;
               font-family: Heebo;
@@ -487,6 +487,18 @@ const Contact = (props) => {
             }
             .contact-mobile-menu {
               padding: 16px;
+            }
+            .contact-top-title {
+              height: 200px;
+            }
+            .contact-text2 {
+              font-size: 3em;
+            }
+            .contact-container3 {
+              height: 100vh;
+            }
+            .contact-container4 {
+              height: 100vh;
             }
             .contact-footer {
               padding: var(--dl-space-space-unit);
