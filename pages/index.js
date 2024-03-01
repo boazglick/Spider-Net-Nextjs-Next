@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 
+import {
+  DataProvider,
+  Repeater,
+  DateTimePrimitive,
+} from '@teleporthq/react-components'
 import Script from 'dangerous-html/react'
 
-import PostsList from '../components/posts-list'
+import homeResource from '../resources/home'
 
 const Home = (props) => {
+  useEffect(() => import('@lottiefiles/lottie-player'), [])
   return (
     <>
       <div className="home-container">
@@ -89,20 +95,131 @@ const Home = (props) => {
         <div className="home-top-title">
           <span className="home-text2">כל המאמרים</span>
         </div>
-        <PostsList></PostsList>
+        <div className="home-container3">
+          <DataProvider
+            renderSuccess={(params) => (
+              <>
+                <Repeater
+                  items={params}
+                  renderItem={(context_wi0d49) => (
+                    <>
+                      <Link href={`/post/${context_wi0d49?.slug}`}>
+                        <a>
+                          <div className="home-product-minitura">
+                            <div className="home-image1">
+                              <DataProvider
+                                fetchData={(params) =>
+                                  fetch(
+                                    `/api/attachment-resource-attachment?${new URLSearchParams(
+                                      params
+                                    )}`,
+                                    {
+                                      headers: {
+                                        'Content-Type': 'application/json',
+                                      },
+                                    }
+                                  )
+                                    .then((res) => res.json())
+                                    .then((data) => data?.data?.[0])
+                                }
+                                renderSuccess={(context_h2kdcd) => (
+                                  <>
+                                    <img
+                                      alt="image"
+                                      src={context_h2kdcd?.source_url}
+                                      className="home-image2"
+                                    />
+                                  </>
+                                )}
+                                params={{
+                                  include: context_wi0d49?.featured_media,
+                                }}
+                              />
+                            </div>
+                            <span className="home-text3">
+                              {context_wi0d49?.title?.rendered}
+                            </span>
+                            <div className="home-date-and-author">
+                              <span className="home-prefix">
+                                פורסם בתאריך: 
+                              </span>
+                              <span className="home-date-time">
+                                <DateTimePrimitive
+                                  format="DD/MM/YYYY"
+                                  date={context_wi0d49?.date}
+                                ></DateTimePrimitive>
+                              </span>
+                            </div>
+                            <div>
+                              <Script
+                                html={context_wi0d49?.excerpt?.rendered}
+                              ></Script>
+                            </div>
+                          </div>
+                        </a>
+                      </Link>
+                    </>
+                  )}
+                />
+              </>
+            )}
+            renderLoading={() => (
+              <>
+                <div className="home-div">
+                  <lottie-player
+                    src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                    loop="true"
+                    speed="1"
+                    autoplay="true"
+                    background="transparent"
+                  ></lottie-player>
+                </div>
+                <div className="home-div1">
+                  <lottie-player
+                    src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                    loop="true"
+                    speed="1"
+                    autoplay="true"
+                    background="transparent"
+                  ></lottie-player>
+                </div>
+                <div className="home-div2">
+                  <lottie-player
+                    src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                    loop="true"
+                    speed="1"
+                    autoplay="true"
+                    background="transparent"
+                  ></lottie-player>
+                </div>
+                <div className="home-div3">
+                  <lottie-player
+                    src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                    loop="true"
+                    speed="1"
+                    autoplay="true"
+                    background="transparent"
+                  ></lottie-player>
+                </div>
+              </>
+            )}
+            initialData={props.contextWi0d49Prop}
+            persistDataDuringLoading={true}
+          />
+        </div>
         <footer className="home-footer">
-          <img alt="logo" src="/ninjalogo.svg" className="home-image1" />
-          <div className="home-container3">
-            <span className="home-text3">2024</span>
+          <img alt="logo" src="/ninjalogo.svg" className="home-image3" />
+          <div className="home-container5">
+            <span className="home-text4">2024</span>
             <div>
-              <div className="home-container5">
+              <div className="home-container7">
                 <Script
                   html={`<script>document.getElementById("year").innerHTML = new Date().getFullYear();
 </script>`}
                 ></Script>
               </div>
             </div>
-            <span className="home-text4">
+            <span className="home-text5">
               © SpiderNet, All Rights Reserved.
               <span
                 dangerouslySetInnerHTML={{
@@ -114,7 +231,7 @@ const Home = (props) => {
               href="https://011.ninja"
               target="_blank"
               rel="noreferrer noopener"
-              className="home-link4"
+              className="home-link5"
             >
               Code design by 011.ninja
             </a>
@@ -312,6 +429,80 @@ const Home = (props) => {
             font-family: 'Heebo';
             font-weight: 900;
           }
+          .home-container3 {
+            flex: 0 0 auto;
+            width: 95%;
+            height: auto;
+            display: grid;
+            position: relative;
+            direction: rtl;
+            align-self: center;
+            margin-top: var(--dl-space-space-fourunits);
+            align-items: flex-start;
+            grid-template-columns: repeat(4, 1fr);
+          }
+          .home-product-minitura {
+            flex: 0 0 auto;
+            width: auto;
+            cursor: pointer;
+            display: flex;
+            padding: var(--dl-space-space-unit);
+            align-items: flex-start;
+            margin-bottom: var(--dl-space-space-twounits);
+            flex-direction: column;
+            text-decoration: none;
+          }
+          .home-image1 {
+            flex: 0 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          .home-image2 {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: var(--dl-space-space-unit);
+          }
+          .home-text3 {
+            width: 100%;
+            height: 60px;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: var(--dl-space-space-halfunit);
+          }
+          .home-date-and-author {
+            flex: 0 0 auto;
+            width: auto;
+            display: flex;
+            margin-bottom: var(--dl-space-space-halfunit);
+            flex-direction: row;
+          }
+          .home-prefix {
+            font-weight: 300;
+            margin-left: var(--dl-space-space-halfunit);
+          }
+          .home-date-time {
+            font-weight: 600;
+          }
+          .home-div {
+            width: 100%;
+            height: 300px;
+          }
+          .home-div1 {
+            width: 100%;
+            height: 300px;
+          }
+          .home-div2 {
+            width: 100%;
+            height: 300px;
+          }
+          .home-div3 {
+            width: 100%;
+            height: 300px;
+          }
           .home-footer {
             width: 100%;
             display: flex;
@@ -324,11 +515,11 @@ const Home = (props) => {
             justify-content: space-between;
             background-color: #111;
           }
-          .home-image1 {
+          .home-image3 {
             height: 2rem;
             object-fit: cover;
           }
-          .home-container3 {
+          .home-container5 {
             flex: 0 0 auto;
             width: auto;
             display: flex;
@@ -336,19 +527,19 @@ const Home = (props) => {
             align-items: flex-start;
             flex-direction: row;
           }
-          .home-text3 {
+          .home-text4 {
             color: var(--dl-color-gray-white);
             font-family: 'Exo 2';
           }
-          .home-container5 {
+          .home-container7 {
             display: contents;
           }
-          .home-text4 {
+          .home-text5 {
             color: rgb(255, 255, 255);
             font-family: 'Exo 2';
             margin-right: var(--dl-space-space-unit);
           }
-          .home-link4 {
+          .home-link5 {
             color: rgb(255, 255, 255);
             cursor: pointer;
             font-family: 'Impact';
@@ -378,6 +569,16 @@ const Home = (props) => {
             height: var(--dl-size-size-xsmall);
             margin-left: var(--dl-space-space-unit);
           }
+          @media (max-width: 1200px) {
+            .home-container3 {
+              grid-template-columns: repeat(3, 1fr);
+            }
+          }
+          @media (max-width: 991px) {
+            .home-container3 {
+              grid-template-columns: repeat(2, 1fr);
+            }
+          }
           @media (max-width: 767px) {
             .home-navbar-interactive {
               padding-left: var(--dl-space-space-twounits);
@@ -398,16 +599,19 @@ const Home = (props) => {
               margin-left: 0;
               margin-bottom: var(--dl-space-space-unit);
             }
+            .home-container3 {
+              grid-template-columns: repeat(1, 1fr);
+            }
             .home-footer {
               padding-left: var(--dl-space-space-twounits);
               padding-right: var(--dl-space-space-twounits);
             }
-            .home-text4 {
+            .home-text5 {
               text-align: center;
               margin-left: var(--dl-space-space-unit);
               margin-right: var(--dl-space-space-unit);
             }
-            .home-link4 {
+            .home-link5 {
               text-align: center;
               margin-left: var(--dl-space-space-unit);
               margin-right: var(--dl-space-space-unit);
@@ -420,19 +624,22 @@ const Home = (props) => {
             .home-mobile-menu {
               padding: 16px;
             }
+            .home-text2 {
+              font-size: 3em;
+            }
             .home-footer {
               padding: var(--dl-space-space-unit);
               flex-direction: column;
             }
-            .home-image1 {
+            .home-image3 {
               margin-bottom: var(--dl-space-space-unit);
             }
-            .home-text4 {
+            .home-text5 {
               margin-left: 0px;
               margin-right: 0px;
               margin-bottom: var(--dl-space-space-unit);
             }
-            .home-link4 {
+            .home-link5 {
               margin-left: 0px;
               margin-right: 0px;
               margin-bottom: var(--dl-space-space-unit);
@@ -445,3 +652,26 @@ const Home = (props) => {
 }
 
 export default Home
+
+export async function getStaticProps(context) {
+  try {
+    const contextWi0d49Prop = await homeResource({
+      ...context?.params,
+    })
+    if (!contextWi0d49Prop) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        contextWi0d49Prop: contextWi0d49Prop,
+      },
+      revalidate: 60,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}

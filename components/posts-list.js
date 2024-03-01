@@ -30,7 +30,7 @@ const PostsList = (props) => {
                             <DataProvider
                               fetchData={(params) =>
                                 fetch(
-                                  `/api/attachment-resource-attachment?${new URLSearchParams(
+                                  `/api/attachment1-resource-attachment1?${new URLSearchParams(
                                     params
                                   )}`,
                                   {
@@ -44,7 +44,7 @@ const PostsList = (props) => {
                               }
                               fetchData={(params) =>
                                 fetch(
-                                  `/api/attachment-resource-attachment?${new URLSearchParams(
+                                  `/api/attachment1-resource-attachment1?${new URLSearchParams(
                                     params
                                   )}`,
                                   {

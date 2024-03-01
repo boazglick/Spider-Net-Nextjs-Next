@@ -9,15 +9,15 @@ import {
 } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqT6Resource from '../../resources/post-page-initial-props-tq_t6'
+import postPageInitialPropsTqQtResource from '../../resources/post-page-initial-props-tq_qt'
 
-const Post = (props) => {
+const Post1 = (props) => {
   return (
     <>
-      <div className="post-container">
+      <div className="post1-container">
         <Head>
-          <title>Post - Spider Net Nextjs</title>
-          <meta property="og:title" content="Post - Spider Net Nextjs" />
+          <title>Post1 - Spider Net Nextjs</title>
+          <meta property="og:title" content="Post1 - Spider Net Nextjs" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
@@ -28,11 +28,11 @@ const Post = (props) => {
                   <>
                     <Link href={`/post/${PostEntities?.slug}`}>
                       <a>
-                        <div className="post-container1">
-                          <h1 className="post-text">
+                        <div className="post1-container1">
+                          <h1 className="post1-text">
                             {PostEntities?.title?.rendered}
                           </h1>
-                          <span className="post-date-time">
+                          <span className="post1-date-time">
                             <DateTimePrimitive
                               format="DD/MM/YYYY"
                               date={PostEntities?.date}
@@ -53,7 +53,7 @@ const Post = (props) => {
       </div>
       <style jsx>
         {`
-          .post-container {
+          .post1-container {
             width: 100%;
             display: flex;
             padding: var(--dl-space-space-unit);
@@ -62,7 +62,7 @@ const Post = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .post-container1 {
+          .post1-container1 {
             gap: 12px;
             width: auto;
             cursor: pointer;
@@ -76,10 +76,10 @@ const Post = (props) => {
             flex-direction: column;
             text-decoration: none;
           }
-          .post-text {
+          .post1-text {
             margin-bottom: var(--dl-space-space-halfunit);
           }
-          .post-date-time {
+          .post1-date-time {
             width: 100%;
             align-self: center;
             text-align: center;
@@ -90,19 +90,19 @@ const Post = (props) => {
   )
 }
 
-Post.defaultProps = {
+Post1.defaultProps = {
   postEntities: [],
 }
 
-Post.propTypes = {
+Post1.propTypes = {
   postEntities: PropTypes.array,
 }
 
-export default Post
+export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqT6Resource({
+    const response = await postPageInitialPropsTqQtResource({
       ...context?.params,
     })
     if (!response) {

@@ -4,21 +4,21 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTq5vResource from '../../resources/attachment-page-initial-props-tq_5v'
-import attachmentPageInitialPathsTqUCResource from '../../resources/attachment-page-initial-paths-tq_u-c'
+import attachmentPageInitialPropsTqFxResource from '../../resources/attachment-page-initial-props-tq_fx'
+import attachmentPageInitialPathsTqWKResource from '../../resources/attachment-page-initial-paths-tq_w-k'
 
-const Attachment11 = (props) => {
+const Attachment = (props) => {
   return (
     <>
-      <div className="attachment11-container">
+      <div className="attachment-container">
         <Head>
-          <title>Attachment1 - Spider Net Nextjs</title>
-          <meta property="og:title" content="Attachment1 - Spider Net Nextjs" />
+          <title>Attachment - Spider Net Nextjs</title>
+          <meta property="og:title" content="Attachment - Spider Net Nextjs" />
         </Head>
         <DataProvider
           renderSuccess={(AttachmentEntity) => (
             <>
-              <div className="attachment11-container1"></div>
+              <div className="attachment-container1"></div>
             </>
           )}
           initialData={props.attachmentEntity}
@@ -28,7 +28,7 @@ const Attachment11 = (props) => {
       </div>
       <style jsx>
         {`
-          .attachment11-container {
+          .attachment-container {
             width: 100%;
             display: flex;
             overflow: auto;
@@ -36,7 +36,7 @@ const Attachment11 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .attachment11-container1 {
+          .attachment-container1 {
             gap: 12px;
             width: 100%;
             border: 2px dashed rgba(120, 120, 120, 0.4);
@@ -49,19 +49,19 @@ const Attachment11 = (props) => {
   )
 }
 
-Attachment11.defaultProps = {
+Attachment.defaultProps = {
   attachmentEntity: [],
 }
 
-Attachment11.propTypes = {
+Attachment.propTypes = {
   attachmentEntity: PropTypes.array,
 }
 
-export default Attachment11
+export default Attachment
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTq5vResource({
+    const response = await attachmentPageInitialPropsTqFxResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -85,7 +85,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await attachmentPageInitialPathsTqUCResource({})
+    const response = await attachmentPageInitialPathsTqWKResource({})
     return {
       paths: (response || []).map((item) => {
         return {

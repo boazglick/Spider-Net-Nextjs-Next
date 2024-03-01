@@ -9,16 +9,16 @@ import {
 } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqRcResource from '../../../resources/post-page-initial-props-tq_rc'
-import postPageInitialPathsTqMhResource from '../../../resources/post-page-initial-paths-tq_mh'
+import postPageInitialPropsTqK0Resource from '../../../resources/post-page-initial-props-tq_k0'
+import postPageInitialPathsTqDResource from '../../../resources/post-page-initial-paths-tq_-d'
 
-const Post1 = (props) => {
+const Post11 = (props) => {
   return (
     <>
-      <div className="post1-container">
+      <div className="post11-container">
         <Head>
-          <title>Post - Spider Net Nextjs</title>
-          <meta property="og:title" content="Post - Spider Net Nextjs" />
+          <title>Post1 - Spider Net Nextjs</title>
+          <meta property="og:title" content="Post1 - Spider Net Nextjs" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
@@ -29,11 +29,11 @@ const Post1 = (props) => {
                   <>
                     <Link href={`/post/${PostEntities?.slug}`}>
                       <a>
-                        <div className="post1-container1">
-                          <h1 className="post1-text">
+                        <div className="post11-container1">
+                          <h1 className="post11-text">
                             {PostEntities?.title?.rendered}
                           </h1>
-                          <span className="post1-date-time">
+                          <span className="post11-date-time">
                             <DateTimePrimitive
                               format="DD/MM/YYYY"
                               date={PostEntities?.date}
@@ -54,7 +54,7 @@ const Post1 = (props) => {
       </div>
       <style jsx>
         {`
-          .post1-container {
+          .post11-container {
             width: 100%;
             display: flex;
             padding: var(--dl-space-space-unit);
@@ -63,7 +63,7 @@ const Post1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .post1-container1 {
+          .post11-container1 {
             gap: 12px;
             width: auto;
             cursor: pointer;
@@ -77,10 +77,10 @@ const Post1 = (props) => {
             flex-direction: column;
             text-decoration: none;
           }
-          .post1-text {
+          .post11-text {
             margin-bottom: var(--dl-space-space-halfunit);
           }
-          .post1-date-time {
+          .post11-date-time {
             width: 100%;
             align-self: center;
             text-align: center;
@@ -91,19 +91,19 @@ const Post1 = (props) => {
   )
 }
 
-Post1.defaultProps = {
+Post11.defaultProps = {
   postEntities: [],
 }
 
-Post1.propTypes = {
+Post11.propTypes = {
   postEntities: PropTypes.array,
 }
 
-export default Post1
+export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqRcResource({
+    const response = await postPageInitialPropsTqK0Resource({
       ...context?.params,
     })
     if (!response) {
@@ -127,7 +127,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqMhResource({})
+    const response = await postPageInitialPathsTqDResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)
