@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqWIResource from '../../resources/attachment-page-initial-props-tq_w-i'
-import attachmentPageInitialPathsTqUvResource from '../../resources/attachment-page-initial-paths-tq_uv'
+import attachmentPageInitialPropsTqQyResource from '../../resources/attachment-page-initial-props-tq_qy'
+import attachmentPageInitialPathsTqCpResource from '../../resources/attachment-page-initial-paths-tq_cp'
 
 const Attachment = (props) => {
   return (
@@ -18,7 +18,9 @@ const Attachment = (props) => {
         <DataProvider
           renderSuccess={(AttachmentEntity) => (
             <>
-              <div className="attachment-container1"></div>
+              <div className="attachment-container1">
+                <h1>{AttachmentEntity?.title?.rendered}</h1>
+              </div>
             </>
           )}
           initialData={props.attachmentEntity}
@@ -39,7 +41,6 @@ const Attachment = (props) => {
           .attachment-container1 {
             gap: 12px;
             width: 100%;
-            border: 2px dashed rgba(120, 120, 120, 0.4);
             display: flex;
             flex-direction: column;
           }
@@ -61,7 +62,7 @@ export default Attachment
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqWIResource({
+    const response = await attachmentPageInitialPropsTqQyResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -74,7 +75,7 @@ export async function getStaticProps(context) {
         attachmentEntity: response?.data?.[0],
         ...response?.meta,
       },
-      revalidate: 10,
+      revalidate: 30,
     }
   } catch (error) {
     return {
@@ -85,7 +86,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await attachmentPageInitialPathsTqUvResource({})
+    const response = await attachmentPageInitialPathsTqCpResource({})
     return {
       paths: (response || []).map((item) => {
         return {

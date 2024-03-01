@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTq64Resource from '../../resources/attachment-page-initial-props-tq_64'
+import attachmentPageInitialPropsTqRsResource from '../../resources/attachment-page-initial-props-tq_rs'
 
 const Attachment1 = (props) => {
   return (
@@ -13,7 +13,6 @@ const Attachment1 = (props) => {
         <Head>
           <title>Attachment1 - Spider Net Nextjs</title>
           <meta property="og:title" content="Attachment1 - Spider Net Nextjs" />
-          <meta name="robots" content="noindex" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
@@ -24,11 +23,6 @@ const Attachment1 = (props) => {
                   <>
                     <div className="attachment1-container1">
                       <h1>{AttachmentEntities?.title?.rendered}</h1>
-                      <img
-                        alt="image"
-                        src={AttachmentEntities?.source_url}
-                        className="attachment1-image"
-                      />
                     </div>
                   </>
                 )}
@@ -52,16 +46,10 @@ const Attachment1 = (props) => {
           }
           .attachment1-container1 {
             gap: 12px;
-            width: auto;
+            width: 100%;
             display: flex;
             align-items: center;
             flex-direction: column;
-          }
-          .attachment1-image {
-            width: 100%;
-            height: var(--dl-size-size-xxlarge);
-            object-fit: cover;
-            border-radius: 20px;
           }
         `}
       </style>
@@ -81,7 +69,7 @@ export default Attachment1
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTq64Resource({
+    const response = await attachmentPageInitialPropsTqRsResource({
       ...context?.params,
     })
     if (!response) {
@@ -94,7 +82,7 @@ export async function getStaticProps(context) {
         attachmentEntities: response,
         ...response?.meta,
       },
-      revalidate: 10,
+      revalidate: 30,
     }
   } catch (error) {
     return {

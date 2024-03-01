@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqBResource from '../../../resources/attachment-page-initial-props-tq__b'
-import attachmentPageInitialPathsTq5hResource from '../../../resources/attachment-page-initial-paths-tq_5h'
+import attachmentPageInitialPropsTqPOResource from '../../../resources/attachment-page-initial-props-tq_p-o'
+import attachmentPageInitialPathsTqFbResource from '../../../resources/attachment-page-initial-paths-tq_fb'
 
 const Attachment11 = (props) => {
   return (
@@ -14,7 +14,6 @@ const Attachment11 = (props) => {
         <Head>
           <title>Attachment1 - Spider Net Nextjs</title>
           <meta property="og:title" content="Attachment1 - Spider Net Nextjs" />
-          <meta name="robots" content="noindex" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
@@ -25,11 +24,6 @@ const Attachment11 = (props) => {
                   <>
                     <div className="attachment11-container1">
                       <h1>{AttachmentEntities?.title?.rendered}</h1>
-                      <img
-                        alt="image"
-                        src={AttachmentEntities?.source_url}
-                        className="attachment11-image"
-                      />
                     </div>
                   </>
                 )}
@@ -53,16 +47,10 @@ const Attachment11 = (props) => {
           }
           .attachment11-container1 {
             gap: 12px;
-            width: auto;
+            width: 100%;
             display: flex;
             align-items: center;
             flex-direction: column;
-          }
-          .attachment11-image {
-            width: 100%;
-            height: var(--dl-size-size-xxlarge);
-            object-fit: cover;
-            border-radius: 20px;
           }
         `}
       </style>
@@ -82,7 +70,7 @@ export default Attachment11
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqBResource({
+    const response = await attachmentPageInitialPropsTqPOResource({
       ...context?.params,
     })
     if (!response) {
@@ -95,7 +83,7 @@ export async function getStaticProps(context) {
         attachmentEntities: response,
         ...response?.meta,
       },
-      revalidate: 10,
+      revalidate: 30,
     }
   } catch (error) {
     return {
@@ -106,7 +94,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await attachmentPageInitialPathsTq5hResource({})
+    const response = await attachmentPageInitialPathsTqFbResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)

@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import pagePageInitialPropsTqKpResource from '../../resources/page-page-initial-props-tq_kp'
+import pagePageInitialPropsTqSsResource from '../../resources/page-page-initial-props-tq_ss'
 
 const Page = (props) => {
   return (
@@ -13,7 +13,6 @@ const Page = (props) => {
         <Head>
           <title>Page - Spider Net Nextjs</title>
           <meta property="og:title" content="Page - Spider Net Nextjs" />
-          <meta name="robots" content="noindex" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
@@ -22,7 +21,9 @@ const Page = (props) => {
                 items={params}
                 renderItem={(PageEntities) => (
                   <>
-                    <span> </span>
+                    <div className="page-container1">
+                      <h1>{PageEntities?.title?.rendered}</h1>
+                    </div>
                   </>
                 )}
               />
@@ -40,6 +41,13 @@ const Page = (props) => {
             display: flex;
             overflow: auto;
             min-height: 100vh;
+            align-items: center;
+            flex-direction: column;
+          }
+          .page-container1 {
+            gap: 12px;
+            width: 100%;
+            display: flex;
             align-items: center;
             flex-direction: column;
           }
@@ -61,7 +69,7 @@ export default Page
 
 export async function getStaticProps(context) {
   try {
-    const response = await pagePageInitialPropsTqKpResource({
+    const response = await pagePageInitialPropsTqSsResource({
       ...context?.params,
     })
     if (!response) {
@@ -74,7 +82,7 @@ export async function getStaticProps(context) {
         pageEntities: response,
         ...response?.meta,
       },
-      revalidate: 10,
+      revalidate: 30,
     }
   } catch (error) {
     return {

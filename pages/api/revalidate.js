@@ -9,16 +9,6 @@ export default async function handler(req, res) {
     }
     await revalidate(req, async (data, contentType) => {
       switch (contentType) {
-        case 'attachment': {
-          try {
-            await res.revalidate(`/attachment/${data.id}`)
-            await res.revalidate(`/attachment`)
-          } catch (error) {
-            console.log('Failed in clearing cache')
-            console.log(error)
-          }
-          break
-        }
         case 'page': {
           try {
             await res.revalidate(`/page`)
@@ -29,10 +19,20 @@ export default async function handler(req, res) {
           }
           break
         }
+        case 'attachment': {
+          try {
+            await res.revalidate(`/attachment/${data.id}`)
+            await res.revalidate(`/attachment`)
+          } catch (error) {
+            console.log('Failed in clearing cache')
+            console.log(error)
+          }
+          break
+        }
         case 'post': {
           try {
-            await res.revalidate(`/post/${data.slug}`)
             await res.revalidate(`/post`)
+            await res.revalidate(`/post/${data.id}`)
           } catch (error) {
             console.log('Failed in clearing cache')
             console.log(error)

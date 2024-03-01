@@ -25,11 +25,15 @@ const Home = (props) => {
           />
         </Head>
         <header data-thq="thq-navbar" className="home-navbar-interactive">
-          <img alt="logo" src="/path15-1500h.png" className="home-image" />
+          <Link href="/">
+            <a className="home-link">
+              <img alt="logo" src="/path15-1500h.png" className="home-image" />
+            </a>
+          </Link>
           <div data-thq="thq-navbar-nav" className="home-desktop-menu">
             <nav className="home-links">
               <Link href="/">
-                <a className="home-link">
+                <a className="home-link1">
                   <div className="home-container1">
                     <svg viewBox="0 0 1024 1024" className="home-icon">
                       <path d="M512 128l342 256v512h-214v-298h-256v298h-214v-512z"></path>
@@ -39,7 +43,7 @@ const Home = (props) => {
                 </a>
               </Link>
               <Link href="/contact">
-                <a className="home-link1">
+                <a className="home-link2">
                   <div className="home-container2">
                     <svg viewBox="0 0 1024 1024" className="home-icon02">
                       <path d="M128 337.963l359.552 251.691c14.507 10.027 33.92 10.496 48.939 0l359.509-251.691v430.037c0 11.605-4.693 22.229-12.587 30.080s-18.475 12.587-30.080 12.587h-682.667c-11.605 0-22.229-4.693-30.080-12.587s-12.587-18.475-12.587-30.080zM42.667 256.512v511.488c0 35.328 14.507 67.371 37.547 90.453s55.125 37.547 90.453 37.547h682.667c35.328 0 67.371-14.507 90.453-37.547s37.547-55.125 37.547-90.453v-511.488c0-0.427 0-0.853 0-1.28-0.213-35.029-14.635-66.773-37.547-89.685-23.083-23.040-55.125-37.547-90.453-37.547h-682.667c-35.328 0-67.371 14.507-90.453 37.547-22.912 22.912-37.333 54.656-37.547 89.728 0 0.213 0 0.469 0 0.725zM891.477 236.971l-379.477 265.6-379.477-265.6c2.048-4.096 4.779-7.808 8.021-11.051 7.893-7.893 18.517-12.587 30.123-12.587h682.667c11.605 0 22.229 4.693 30.080 12.587 3.243 3.243 5.973 6.997 8.021 11.051z"></path>
@@ -58,11 +62,15 @@ const Home = (props) => {
           <div data-thq="thq-mobile-menu" className="home-mobile-menu">
             <div className="home-nav">
               <div className="home-top">
-                <img
-                  alt="image"
-                  src="/path15-1500h.png"
-                  className="home-logo"
-                />
+                <Link href="/">
+                  <a className="home-link3">
+                    <img
+                      alt="image"
+                      src="/path15-1500h.png"
+                      className="home-logo"
+                    />
+                  </a>
+                </Link>
                 <div data-thq="thq-close-menu" className="home-close-menu">
                   <svg viewBox="0 0 1024 1024" className="home-icon06">
                     <path d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"></path>
@@ -71,10 +79,10 @@ const Home = (props) => {
               </div>
               <nav className="home-links1">
                 <Link href="/">
-                  <a className="home-link2">דף הבית</a>
+                  <a className="home-link4">דף הבית</a>
                 </Link>
                 <Link href="/contact">
-                  <a className="home-link3">צור קשר</a>
+                  <a className="home-link5">צור קשר</a>
                 </Link>
               </nav>
               <div className="home-buttons"></div>
@@ -101,9 +109,9 @@ const Home = (props) => {
               <>
                 <Repeater
                   items={params}
-                  renderItem={(context_wi0d49) => (
+                  renderItem={(PostlistHome) => (
                     <>
-                      <Link href={`/post/${context_wi0d49?.slug}`}>
+                      <Link href={`/post/${PostlistHome?.id}`}>
                         <a>
                           <div className="home-product-minitura">
                             <div className="home-image1">
@@ -122,22 +130,25 @@ const Home = (props) => {
                                     .then((res) => res.json())
                                     .then((data) => data?.data?.[0])
                                 }
-                                renderSuccess={(context_h2kdcd) => (
+                                renderSuccess={(ProductListImageHome) => (
                                   <>
                                     <img
                                       alt="image"
-                                      src={context_h2kdcd?.source_url}
+                                      src={
+                                        ProductListImageHome?.source_url ||
+                                        'https://images.unsplash.com/photo-1607827448387-a67db1383b59?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDd8fHBsYWNlSG9sZGVyfGVufDB8fHx8MTcwOTMyNTkxOHww&ixlib=rb-4.0.3&h=300'
+                                      }
                                       className="home-image2"
                                     />
                                   </>
                                 )}
                                 params={{
-                                  include: context_wi0d49?.featured_media,
+                                  include: PostlistHome?.featured_media,
                                 }}
                               />
                             </div>
                             <span className="home-text3">
-                              {context_wi0d49?.title?.rendered}
+                              {PostlistHome?.title?.rendered}
                             </span>
                             <div className="home-date-and-author">
                               <span className="home-prefix">
@@ -146,13 +157,13 @@ const Home = (props) => {
                               <span className="home-date-time">
                                 <DateTimePrimitive
                                   format="DD/MM/YYYY"
-                                  date={context_wi0d49?.date}
+                                  date={PostlistHome?.date}
                                 ></DateTimePrimitive>
                               </span>
                             </div>
                             <div>
                               <Script
-                                html={context_wi0d49?.excerpt?.rendered}
+                                html={PostlistHome?.excerpt?.rendered}
                               ></Script>
                             </div>
                           </div>
@@ -203,7 +214,7 @@ const Home = (props) => {
                 </div>
               </>
             )}
-            initialData={props.contextWi0d49Prop}
+            initialData={props.postlistHomeProp}
             persistDataDuringLoading={true}
           />
         </div>
@@ -231,7 +242,7 @@ const Home = (props) => {
               href="https://011.ninja"
               target="_blank"
               rel="noreferrer noopener"
-              className="home-link5"
+              className="home-link7"
             >
               Code design by 011.ninja
             </a>
@@ -271,8 +282,12 @@ const Home = (props) => {
             justify-content: space-between;
             background-color: #f9f9f9;
           }
+          .home-link {
+            display: contents;
+          }
           .home-image {
             height: 2rem;
+            text-decoration: none;
           }
           .home-desktop-menu {
             flex: 1;
@@ -286,7 +301,7 @@ const Home = (props) => {
             flex-direction: row;
             justify-content: center;
           }
-          .home-link {
+          .home-link1 {
             display: contents;
           }
           .home-container1 {
@@ -307,7 +322,7 @@ const Home = (props) => {
           .home-text {
             font-size: 24px;
           }
-          .home-link1 {
+          .home-link2 {
             display: contents;
           }
           .home-container2 {
@@ -361,8 +376,12 @@ const Home = (props) => {
             margin-bottom: var(--dl-space-space-threeunits);
             justify-content: space-between;
           }
+          .home-link3 {
+            display: contents;
+          }
           .home-logo {
             height: 2rem;
+            text-decoration: none;
           }
           .home-close-menu {
             display: flex;
@@ -380,11 +399,11 @@ const Home = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .home-link2 {
+          .home-link4 {
             margin-bottom: var(--dl-space-space-unit);
             text-decoration: none;
           }
-          .home-link3 {
+          .home-link5 {
             margin-bottom: var(--dl-space-space-unit);
             text-decoration: none;
           }
@@ -539,7 +558,7 @@ const Home = (props) => {
             font-family: 'Exo 2';
             margin-right: var(--dl-space-space-unit);
           }
-          .home-link5 {
+          .home-link7 {
             color: rgb(255, 255, 255);
             cursor: pointer;
             font-family: 'Impact';
@@ -592,10 +611,10 @@ const Home = (props) => {
               align-items: center;
               justify-content: center;
             }
-            .home-link2 {
+            .home-link4 {
               margin-bottom: var(--dl-space-space-unit);
             }
-            .home-link3 {
+            .home-link5 {
               margin-left: 0;
               margin-bottom: var(--dl-space-space-unit);
             }
@@ -611,7 +630,7 @@ const Home = (props) => {
               margin-left: var(--dl-space-space-unit);
               margin-right: var(--dl-space-space-unit);
             }
-            .home-link5 {
+            .home-link7 {
               text-align: center;
               margin-left: var(--dl-space-space-unit);
               margin-right: var(--dl-space-space-unit);
@@ -644,7 +663,7 @@ const Home = (props) => {
               margin-right: 0px;
               margin-bottom: var(--dl-space-space-unit);
             }
-            .home-link5 {
+            .home-link7 {
               margin-left: 0px;
               margin-right: 0px;
               margin-bottom: var(--dl-space-space-unit);
@@ -660,17 +679,17 @@ export default Home
 
 export async function getStaticProps(context) {
   try {
-    const contextWi0d49Prop = await homeResource({
+    const postlistHomeProp = await homeResource({
       ...context?.params,
     })
-    if (!contextWi0d49Prop) {
+    if (!postlistHomeProp) {
       return {
         notFound: true,
       }
     }
     return {
       props: {
-        contextWi0d49Prop: contextWi0d49Prop,
+        postlistHomeProp: postlistHomeProp,
       },
       revalidate: 60,
     }

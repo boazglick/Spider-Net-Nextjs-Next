@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import pagePageInitialPropsTqDwResource from '../../../resources/page-page-initial-props-tq_dw'
-import pagePageInitialPathsTqRYResource from '../../../resources/page-page-initial-paths-tq_r-y'
+import pagePageInitialPropsTqOpResource from '../../../resources/page-page-initial-props-tq_op'
+import pagePageInitialPathsTqH7Resource from '../../../resources/page-page-initial-paths-tq_h7'
 
 const Page1 = (props) => {
   return (
@@ -14,7 +14,6 @@ const Page1 = (props) => {
         <Head>
           <title>Page - Spider Net Nextjs</title>
           <meta property="og:title" content="Page - Spider Net Nextjs" />
-          <meta name="robots" content="noindex" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
@@ -23,7 +22,9 @@ const Page1 = (props) => {
                 items={params}
                 renderItem={(PageEntities) => (
                   <>
-                    <span> </span>
+                    <div className="page1-container1">
+                      <h1>{PageEntities?.title?.rendered}</h1>
+                    </div>
                   </>
                 )}
               />
@@ -41,6 +42,13 @@ const Page1 = (props) => {
             display: flex;
             overflow: auto;
             min-height: 100vh;
+            align-items: center;
+            flex-direction: column;
+          }
+          .page1-container1 {
+            gap: 12px;
+            width: 100%;
+            display: flex;
             align-items: center;
             flex-direction: column;
           }
@@ -62,7 +70,7 @@ export default Page1
 
 export async function getStaticProps(context) {
   try {
-    const response = await pagePageInitialPropsTqDwResource({
+    const response = await pagePageInitialPropsTqOpResource({
       ...context?.params,
     })
     if (!response) {
@@ -75,7 +83,7 @@ export async function getStaticProps(context) {
         pageEntities: response,
         ...response?.meta,
       },
-      revalidate: 10,
+      revalidate: 30,
     }
   } catch (error) {
     return {
@@ -86,7 +94,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await pagePageInitialPathsTqRYResource({})
+    const response = await pagePageInitialPathsTqH7Resource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)

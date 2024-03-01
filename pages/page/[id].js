@@ -2,10 +2,11 @@ import React from 'react'
 import Head from 'next/head'
 
 import { DataProvider, Repeater } from '@teleporthq/react-components'
+import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import pagePageInitialPropsTqH2Resource from '../../resources/page-page-initial-props-tq_h2'
-import pagePageInitialPathsTqLfResource from '../../resources/page-page-initial-paths-tq_lf'
+import pagePageInitialPropsTqEkResource from '../../resources/page-page-initial-props-tq_ek'
+import pagePageInitialPathsTqBResource from '../../resources/page-page-initial-paths-tq_-b'
 
 const Page11 = (props) => {
   return (
@@ -18,7 +19,15 @@ const Page11 = (props) => {
         <DataProvider
           renderSuccess={(PageEntity) => (
             <>
-              <div className="page11-container1"></div>
+              <div className="page11-container1">
+                <h1>{PageEntity?.title?.rendered}</h1>
+                <div className="page11-container2">
+                  <Script
+                    html={PageEntity?.content?.rendered}
+                    className="page11-html-node"
+                  ></Script>
+                </div>
+              </div>
             </>
           )}
           initialData={props.pageEntity}
@@ -39,9 +48,16 @@ const Page11 = (props) => {
           .page11-container1 {
             gap: 12px;
             width: 100%;
-            border: 2px dashed rgba(120, 120, 120, 0.4);
             display: flex;
             flex-direction: column;
+          }
+          .page11-container2 {
+            width: 100%;
+            align-self: stretch;
+          }
+          .page11-html-node {
+            width: 100%;
+            align-self: stretch;
           }
         `}
       </style>
@@ -61,7 +77,7 @@ export default Page11
 
 export async function getStaticProps(context) {
   try {
-    const response = await pagePageInitialPropsTqH2Resource({
+    const response = await pagePageInitialPropsTqEkResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -74,7 +90,7 @@ export async function getStaticProps(context) {
         pageEntity: response?.data?.[0],
         ...response?.meta,
       },
-      revalidate: 10,
+      revalidate: 30,
     }
   } catch (error) {
     return {
@@ -85,7 +101,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await pagePageInitialPathsTqLfResource({})
+    const response = await pagePageInitialPathsTqBResource({})
     return {
       paths: (response || []).map((item) => {
         return {
