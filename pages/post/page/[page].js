@@ -6,8 +6,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
 import Footer from '../../../components/footer'
-import postPageInitialPropsTqSeResource from '../../../resources/post-page-initial-props-tq_se'
-import postPageInitialPathsTqUsResource from '../../../resources/post-page-initial-paths-tq_us'
+import postPageInitialPropsTqOwResource from '../../../resources/post-page-initial-props-tq_ow'
+import postPageInitialPathsTqXXResource from '../../../resources/post-page-initial-paths-tq_x-x'
 
 const Post1 = (props) => {
   useEffect(() => import('@lottiefiles/lottie-player'), [])
@@ -512,7 +512,7 @@ const Post1 = (props) => {
               background-color: #f9f9f9;
             }
             .post1-image {
-              height: 3.5rem;
+              height: 3rem;
             }
             .post1-desktop-menu {
               display: none;
@@ -526,8 +526,12 @@ const Post1 = (props) => {
               width: var(--dl-size-size-small);
               height: var(--dl-size-size-small);
             }
+            .post1-mobile-menu {
+              padding-left: var(--dl-space-space-twounits);
+              padding-right: var(--dl-space-space-twounits);
+            }
             .post1-logo {
-              height: 30px;
+              height: 3rem;
             }
             .post1-link4 {
               margin-bottom: var(--dl-space-space-unit);
@@ -550,7 +554,7 @@ const Post1 = (props) => {
               padding-bottom: var(--dl-space-space-unit);
             }
             .post1-image {
-              height: 3.5rem;
+              height: 3rem;
             }
             .post1-icon04 {
               width: 30px;
@@ -612,7 +616,7 @@ export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqSeResource({
+    const response = await postPageInitialPropsTqOwResource({
       ...context?.params,
     })
     if (!response) {
@@ -636,7 +640,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqUsResource({})
+    const response = await postPageInitialPathsTqXXResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)

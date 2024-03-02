@@ -438,7 +438,7 @@ const Contact = (props) => {
               padding-right: var(--dl-space-space-twounits);
             }
             .contact-image {
-              height: 3.5rem;
+              height: 3rem;
             }
             .contact-desktop-menu {
               display: none;
@@ -453,8 +453,12 @@ const Contact = (props) => {
               width: var(--dl-size-size-small);
               height: var(--dl-size-size-small);
             }
+            .contact-mobile-menu {
+              padding-left: var(--dl-space-space-twounits);
+              padding-right: var(--dl-space-space-twounits);
+            }
             .contact-logo {
-              height: 3.5rem;
+              height: 3rem;
             }
             .contact-link4 {
               margin-bottom: var(--dl-space-space-unit);
@@ -472,7 +476,7 @@ const Contact = (props) => {
               padding-bottom: var(--dl-space-space-unit);
             }
             .contact-image {
-              height: 3.5rem;
+              height: 3rem;
             }
             .contact-icon04 {
               width: 30px;

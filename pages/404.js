@@ -313,7 +313,7 @@ const Page = (props) => {
               background-color: #f9f9f9;
             }
             .page-image {
-              height: 3.5rem;
+              height: 3rem;
             }
             .page-desktop-menu {
               display: none;
@@ -327,8 +327,12 @@ const Page = (props) => {
               width: var(--dl-size-size-small);
               height: var(--dl-size-size-small);
             }
+            .page-mobile-menu {
+              padding-left: var(--dl-space-space-twounits);
+              padding-right: var(--dl-space-space-twounits);
+            }
             .page-logo {
-              height: 30px;
+              height: 3rem;
             }
             .page-link4 {
               margin-bottom: var(--dl-space-space-unit);
@@ -346,7 +350,7 @@ const Page = (props) => {
               padding-bottom: var(--dl-space-space-unit);
             }
             .page-image {
-              height: 3.5rem;
+              height: 3rem;
             }
             .page-icon04 {
               width: 30px;

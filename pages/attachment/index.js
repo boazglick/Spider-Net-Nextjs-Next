@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqJmResource from '../../resources/attachment-page-initial-props-tq_jm'
+import attachmentPageInitialPropsTq6rResource from '../../resources/attachment-page-initial-props-tq_6r'
 
 const Attachment1 = (props) => {
   return (
@@ -85,7 +85,7 @@ export default Attachment1
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqJmResource({
+    const response = await attachmentPageInitialPropsTq6rResource({
       ...context?.params,
     })
     if (!response) {

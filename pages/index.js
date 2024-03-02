@@ -545,7 +545,7 @@ const HomePage = (props) => {
               background-color: #f9f9f9;
             }
             .home-page-image {
-              height: 3.5rem;
+              height: 3rem;
             }
             .home-page-desktop-menu {
               display: none;
@@ -559,8 +559,12 @@ const HomePage = (props) => {
               width: var(--dl-size-size-small);
               height: var(--dl-size-size-small);
             }
+            .home-page-mobile-menu {
+              padding-left: var(--dl-space-space-twounits);
+              padding-right: var(--dl-space-space-twounits);
+            }
             .home-page-logo {
-              height: 30px;
+              height: 3rem;
             }
             .home-page-link4 {
               margin-bottom: var(--dl-space-space-unit);
@@ -581,15 +585,18 @@ const HomePage = (props) => {
               padding-bottom: var(--dl-space-space-unit);
             }
             .home-page-image {
-              height: 3.5rem;
+              height: 3rem;
             }
             .home-page-icon04 {
               width: 30px;
               height: 30px;
             }
             .home-page-mobile-menu {
-              padding: 16px;
+              padding: var(--dl-space-space-unit);
               background-color: #111111;
+            }
+            .home-page-logo {
+              height: 3rem;
             }
             .home-page-icon06 {
               fill: var(--dl-color-gray-white);

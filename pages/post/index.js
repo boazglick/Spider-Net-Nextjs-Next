@@ -6,7 +6,7 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTqRLResource from '../../resources/post-page-initial-props-tq_r-l'
+import postPageInitialPropsTq2yResource from '../../resources/post-page-initial-props-tq_2y'
 
 const Post = (props) => {
   useEffect(() => import('@lottiefiles/lottie-player'), [])
@@ -502,7 +502,7 @@ const Post = (props) => {
               background-color: #f9f9f9;
             }
             .post-image {
-              height: 3.5rem;
+              height: 3rem;
             }
             .post-desktop-menu {
               display: none;
@@ -516,8 +516,12 @@ const Post = (props) => {
               width: var(--dl-size-size-small);
               height: var(--dl-size-size-small);
             }
+            .post-mobile-menu {
+              padding-left: var(--dl-space-space-twounits);
+              padding-right: var(--dl-space-space-twounits);
+            }
             .post-logo {
-              height: 30px;
+              height: 3rem;
             }
             .post-link4 {
               margin-bottom: var(--dl-space-space-unit);
@@ -540,7 +544,7 @@ const Post = (props) => {
               padding-bottom: var(--dl-space-space-unit);
             }
             .post-image {
-              height: 3.5rem;
+              height: 3rem;
             }
             .post-icon04 {
               width: 30px;
@@ -602,7 +606,7 @@ export default Post
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqRLResource({
+    const response = await postPageInitialPropsTq2yResource({
       ...context?.params,
     })
     if (!response) {

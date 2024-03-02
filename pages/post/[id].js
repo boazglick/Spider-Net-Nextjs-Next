@@ -11,8 +11,8 @@ import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTqJResource from '../../resources/post-page-initial-props-tq_j_'
-import postPageInitialPathsTqHrResource from '../../resources/post-page-initial-paths-tq_hr'
+import postPageInitialPropsTqJ1Resource from '../../resources/post-page-initial-props-tq_j1'
+import postPageInitialPathsTqEjResource from '../../resources/post-page-initial-paths-tq_ej'
 
 const Post11 = (props) => {
   useEffect(() => import('@lottiefiles/lottie-player'), [])
@@ -537,7 +537,7 @@ const Post11 = (props) => {
               background-color: #f9f9f9;
             }
             .post11-image {
-              height: 3.5rem;
+              height: 3rem;
             }
             .post11-desktop-menu {
               display: none;
@@ -551,8 +551,12 @@ const Post11 = (props) => {
               width: var(--dl-size-size-small);
               height: var(--dl-size-size-small);
             }
+            .post11-mobile-menu {
+              padding-left: var(--dl-space-space-twounits);
+              padding-right: var(--dl-space-space-twounits);
+            }
             .post11-logo {
-              height: 30px;
+              height: 3rem;
             }
             .post11-link4 {
               margin-bottom: var(--dl-space-space-unit);
@@ -581,7 +585,7 @@ const Post11 = (props) => {
               padding-bottom: var(--dl-space-space-unit);
             }
             .post11-image {
-              height: 3.5rem;
+              height: 3rem;
             }
             .post11-icon04 {
               width: 30px;
@@ -590,6 +594,9 @@ const Post11 = (props) => {
             .post11-mobile-menu {
               padding: 16px;
               background-color: #111111;
+            }
+            .post11-logo {
+              height: 3rem;
             }
             .post11-icon06 {
               fill: var(--dl-color-gray-white);
@@ -643,7 +650,7 @@ export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqJResource({
+    const response = await postPageInitialPropsTqJ1Resource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -667,7 +674,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqHrResource({})
+    const response = await postPageInitialPathsTqEjResource({})
     return {
       paths: (response || []).map((item) => {
         return {
