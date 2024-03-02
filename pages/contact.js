@@ -240,6 +240,7 @@ const Contact = (props) => {
             display: contents;
           }
           .contact-image {
+            cursor: pointer;
             height: 3rem;
             text-decoration: none;
           }
@@ -349,8 +350,8 @@ const Contact = (props) => {
           }
           .contact-icon06 {
             fill: var(--dl-color-gray-white);
-            width: var(--dl-size-size-small);
-            height: var(--dl-size-size-small);
+            width: 30px;
+            height: 30px;
           }
           .contact-links1 {
             flex: 0 0 auto;
@@ -361,12 +362,14 @@ const Contact = (props) => {
           }
           .contact-link4 {
             color: var(--dl-color-gray-white);
-            margin-bottom: var(--dl-space-space-unit);
+            font-size: 2em;
+            margin-bottom: var(--dl-space-space-twounits);
             text-decoration: none;
           }
           .contact-link5 {
             color: var(--dl-color-gray-white);
-            margin-bottom: var(--dl-space-space-unit);
+            font-size: 2em;
+            margin-bottom: var(--dl-space-space-twounits);
             text-decoration: none;
           }
           .contact-buttons {

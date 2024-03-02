@@ -46,7 +46,7 @@ const HomePage = (props) => {
                   </div>
                 </a>
               </Link>
-              <Link href="/">
+              <Link href="/contact">
                 <a className="home-page-link2">
                   <div className="home-page-container2">
                     <svg viewBox="0 0 1024 1024" className="home-page-icon02">
@@ -221,6 +221,7 @@ const HomePage = (props) => {
             display: contents;
           }
           .home-page-image {
+            cursor: pointer;
             height: 3rem;
             text-decoration: none;
           }

@@ -126,6 +126,7 @@ const Page = (props) => {
             display: contents;
           }
           .page-image {
+            cursor: pointer;
             height: 3rem;
             text-decoration: none;
           }

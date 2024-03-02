@@ -11,8 +11,8 @@ import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTqYTResource from '../../resources/post-page-initial-props-tq_y-t'
-import postPageInitialPathsTqR3Resource from '../../resources/post-page-initial-paths-tq_r3'
+import postPageInitialPropsTq6jResource from '../../resources/post-page-initial-props-tq_6j'
+import postPageInitialPathsTqXMResource from '../../resources/post-page-initial-paths-tq_x-m'
 
 const Post11 = (props) => {
   return (
@@ -123,7 +123,7 @@ const Post11 = (props) => {
                 <DataProvider
                   fetchData={(params) =>
                     fetch(
-                      `/api/attachment2-resource-attachment2?${new URLSearchParams(
+                      `/api/attachment3-resource-attachment3?${new URLSearchParams(
                         params
                       )}`,
                       {
@@ -207,6 +207,7 @@ const Post11 = (props) => {
             display: contents;
           }
           .post11-image {
+            cursor: pointer;
             height: 3rem;
             text-decoration: none;
           }
@@ -601,7 +602,7 @@ export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqYTResource({
+    const response = await postPageInitialPropsTq6jResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -625,7 +626,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqR3Resource({})
+    const response = await postPageInitialPathsTqXMResource({})
     return {
       paths: (response || []).map((item) => {
         return {
