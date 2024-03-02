@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqUfResource from '../../resources/attachment-page-initial-props-tq_uf'
-import attachmentPageInitialPathsTqZrResource from '../../resources/attachment-page-initial-paths-tq_zr'
+import attachmentPageInitialPropsTqGnResource from '../../resources/attachment-page-initial-props-tq_gn'
+import attachmentPageInitialPathsTqXoResource from '../../resources/attachment-page-initial-paths-tq_xo'
 
 const Attachment = (props) => {
   return (
@@ -65,7 +65,7 @@ export default Attachment
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqUfResource({
+    const response = await attachmentPageInitialPropsTqGnResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -89,7 +89,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await attachmentPageInitialPathsTqZrResource({})
+    const response = await attachmentPageInitialPathsTqXoResource({})
     return {
       paths: (response || []).map((item) => {
         return {

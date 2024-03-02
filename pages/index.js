@@ -221,7 +221,6 @@ const HomePage = (props) => {
             display: contents;
           }
           .home-page-image {
-            cursor: pointer;
             height: 3rem;
             text-decoration: none;
           }
@@ -293,12 +292,15 @@ const HomePage = (props) => {
             width: 100%;
             height: 100vh;
             display: flex;
-            padding: 32px;
             z-index: 100;
             position: absolute;
             transform: translateX(-100%);
             transition: 0.5s;
+            padding-top: var(--dl-space-space-twounits);
+            padding-left: var(--dl-space-space-threeunits);
+            padding-right: var(--dl-space-space-threeunits);
             flex-direction: column;
+            padding-bottom: var(--dl-space-space-twounits);
             justify-content: space-between;
             background-color: #111;
           }
@@ -318,8 +320,8 @@ const HomePage = (props) => {
             display: contents;
           }
           .home-page-logo {
-            width: 30px;
-            height: 30px;
+            width: auto;
+            height: 3rem;
             text-decoration: none;
           }
           .home-page-close-menu {
@@ -341,12 +343,14 @@ const HomePage = (props) => {
           }
           .home-page-link4 {
             color: var(--dl-color-gray-white);
-            margin-bottom: var(--dl-space-space-unit);
+            font-size: 2em;
+            margin-bottom: var(--dl-space-space-twounits);
             text-decoration: none;
           }
           .home-page-link5 {
             color: var(--dl-color-gray-white);
-            margin-bottom: var(--dl-space-space-unit);
+            font-size: 2em;
+            margin-bottom: var(--dl-space-space-twounits);
             text-decoration: none;
           }
           .home-page-buttons {
@@ -493,7 +497,7 @@ const HomePage = (props) => {
               height: var(--dl-size-size-small);
             }
             .home-page-logo {
-              height: 3.5rem;
+              height: 30px;
             }
             .home-page-link4 {
               margin-bottom: var(--dl-space-space-unit);

@@ -11,8 +11,8 @@ import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTqR4Resource from '../../resources/post-page-initial-props-tq_r4'
-import postPageInitialPathsTqWAResource from '../../resources/post-page-initial-paths-tq_w-a'
+import postPageInitialPropsTqYTResource from '../../resources/post-page-initial-props-tq_y-t'
+import postPageInitialPathsTqR3Resource from '../../resources/post-page-initial-paths-tq_r3'
 
 const Post11 = (props) => {
   return (
@@ -23,11 +23,19 @@ const Post11 = (props) => {
           <meta property="og:title" content="Post1 - SpiderNet Nextjs new" />
         </Head>
         <header data-thq="thq-navbar" className="post11-navbar-interactive">
-          <img alt="logo" src="/path15-1500h.png" className="post11-image" />
+          <Link href="/">
+            <a className="post11-link">
+              <img
+                alt="logo"
+                src="/path15-1500h.png"
+                className="post11-image"
+              />
+            </a>
+          </Link>
           <div data-thq="thq-navbar-nav" className="post11-desktop-menu">
             <nav className="post11-links">
               <Link href="/">
-                <a className="post11-link">
+                <a className="post11-link1">
                   <div className="post11-container1">
                     <svg viewBox="0 0 1024 1024" className="post11-icon">
                       <path d="M512 128l342 256v512h-214v-298h-256v298h-214v-512z"></path>
@@ -37,7 +45,7 @@ const Post11 = (props) => {
                 </a>
               </Link>
               <Link href="/">
-                <a className="post11-link1">
+                <a className="post11-link2">
                   <div className="post11-container2">
                     <svg viewBox="0 0 1024 1024" className="post11-icon02">
                       <path d="M128 337.963l359.552 251.691c14.507 10.027 33.92 10.496 48.939 0l359.509-251.691v430.037c0 11.605-4.693 22.229-12.587 30.080s-18.475 12.587-30.080 12.587h-682.667c-11.605 0-22.229-4.693-30.080-12.587s-12.587-18.475-12.587-30.080zM42.667 256.512v511.488c0 35.328 14.507 67.371 37.547 90.453s55.125 37.547 90.453 37.547h682.667c35.328 0 67.371-14.507 90.453-37.547s37.547-55.125 37.547-90.453v-511.488c0-0.427 0-0.853 0-1.28-0.213-35.029-14.635-66.773-37.547-89.685-23.083-23.040-55.125-37.547-90.453-37.547h-682.667c-35.328 0-67.371 14.507-90.453 37.547-22.912 22.912-37.333 54.656-37.547 89.728 0 0.213 0 0.469 0 0.725zM891.477 236.971l-379.477 265.6-379.477-265.6c2.048-4.096 4.779-7.808 8.021-11.051 7.893-7.893 18.517-12.587 30.123-12.587h682.667c11.605 0 22.229 4.693 30.080 12.587 3.243 3.243 5.973 6.997 8.021 11.051z"></path>
@@ -57,7 +65,7 @@ const Post11 = (props) => {
             <div className="post11-nav">
               <div className="post11-top">
                 <Link href="/">
-                  <a className="post11-link2">
+                  <a className="post11-link3">
                     <img
                       alt="image"
                       src="8ff87394-9c44-45be-a984-e69c1b59aac1"
@@ -73,10 +81,10 @@ const Post11 = (props) => {
               </div>
               <nav className="post11-links1">
                 <Link href="/">
-                  <a className="post11-link3">דף הבית</a>
+                  <a className="post11-link4">דף הבית</a>
                 </Link>
                 <Link href="/contact">
-                  <a className="post11-link4">צור קשר</a>
+                  <a className="post11-link5">צור קשר</a>
                 </Link>
               </nav>
               <div className="post11-buttons"></div>
@@ -195,6 +203,9 @@ const Post11 = (props) => {
             justify-content: space-between;
             background-color: #f9f9f9;
           }
+          .post11-link {
+            display: contents;
+          }
           .post11-image {
             height: 3rem;
             text-decoration: none;
@@ -211,7 +222,7 @@ const Post11 = (props) => {
             flex-direction: row;
             justify-content: center;
           }
-          .post11-link {
+          .post11-link1 {
             display: contents;
           }
           .post11-container1 {
@@ -233,7 +244,7 @@ const Post11 = (props) => {
             color: var(--dl-color-gray-black);
             font-size: 24px;
           }
-          .post11-link1 {
+          .post11-link2 {
             display: contents;
           }
           .post11-container2 {
@@ -267,12 +278,15 @@ const Post11 = (props) => {
             width: 100%;
             height: 100vh;
             display: flex;
-            padding: 32px;
             z-index: 100;
             position: absolute;
             transform: translateX(-100%);
             transition: 0.5s;
+            padding-top: var(--dl-space-space-twounits);
+            padding-left: var(--dl-space-space-threeunits);
+            padding-right: var(--dl-space-space-threeunits);
             flex-direction: column;
+            padding-bottom: var(--dl-space-space-twounits);
             justify-content: space-between;
             background-color: #111;
           }
@@ -288,12 +302,12 @@ const Post11 = (props) => {
             margin-bottom: var(--dl-space-space-threeunits);
             justify-content: space-between;
           }
-          .post11-link2 {
+          .post11-link3 {
             display: contents;
           }
           .post11-logo {
-            width: 30px;
-            height: 30px;
+            width: auto;
+            height: 3rem;
             text-decoration: none;
           }
           .post11-close-menu {
@@ -313,14 +327,16 @@ const Post11 = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .post11-link3 {
-            color: var(--dl-color-gray-white);
-            margin-bottom: var(--dl-space-space-unit);
-            text-decoration: none;
-          }
           .post11-link4 {
             color: var(--dl-color-gray-white);
-            margin-bottom: var(--dl-space-space-unit);
+            font-size: 2em;
+            margin-bottom: var(--dl-space-space-twounits);
+            text-decoration: none;
+          }
+          .post11-link5 {
+            color: var(--dl-color-gray-white);
+            font-size: 2em;
+            margin-bottom: var(--dl-space-space-twounits);
             text-decoration: none;
           }
           .post11-buttons {
@@ -364,6 +380,7 @@ const Post11 = (props) => {
             font-size: 4em;
             text-align: center;
             font-weight: 900;
+            line-height: 1.6;
           }
           .post11-featured-image {
             flex: 0 0 auto;
@@ -493,17 +510,18 @@ const Post11 = (props) => {
               height: var(--dl-size-size-small);
             }
             .post11-logo {
-              height: 3.5rem;
-            }
-            .post11-link3 {
-              margin-bottom: var(--dl-space-space-unit);
+              height: 30px;
             }
             .post11-link4 {
+              margin-bottom: var(--dl-space-space-unit);
+            }
+            .post11-link5 {
               margin-left: 0;
               margin-bottom: var(--dl-space-space-unit);
             }
             .post11-text2 {
               padding: var(--dl-space-space-unit);
+              font-size: 2em;
             }
             .post11-date-and-author {
               padding-right: var(--dl-space-space-twounits);
@@ -536,10 +554,10 @@ const Post11 = (props) => {
               width: 30px;
               height: 30px;
             }
-            .post11-link3 {
+            .post11-link4 {
               color: var(--dl-color-gray-white);
             }
-            .post11-link4 {
+            .post11-link5 {
               color: var(--dl-color-gray-white);
             }
             .post11-icon08 {
@@ -553,7 +571,7 @@ const Post11 = (props) => {
             }
             .post11-text2 {
               padding: var(--dl-space-space-unit);
-              font-size: 3em;
+              font-size: 2em;
             }
             .post11-date-and-author {
               padding-right: var(--dl-space-space-unit);
@@ -583,7 +601,7 @@ export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqR4Resource({
+    const response = await postPageInitialPropsTqYTResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -607,7 +625,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqWAResource({})
+    const response = await postPageInitialPathsTqR3Resource({})
     return {
       paths: (response || []).map((item) => {
         return {

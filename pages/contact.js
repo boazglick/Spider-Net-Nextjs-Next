@@ -311,12 +311,15 @@ const Contact = (props) => {
             width: 100%;
             height: 100vh;
             display: flex;
-            padding: 32px;
             z-index: 100;
             position: absolute;
             transform: translateX(-100%);
             transition: 0.5s;
+            padding-top: var(--dl-space-space-twounits);
+            padding-left: var(--dl-space-space-threeunits);
+            padding-right: var(--dl-space-space-threeunits);
             flex-direction: column;
+            padding-bottom: var(--dl-space-space-twounits);
             justify-content: space-between;
             background-color: #111;
           }
@@ -336,7 +339,7 @@ const Contact = (props) => {
             display: contents;
           }
           .contact-logo {
-            height: 2rem;
+            height: 3rem;
             text-decoration: none;
           }
           .contact-close-menu {

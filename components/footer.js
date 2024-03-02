@@ -17,10 +17,12 @@ const Footer = (props) => {
           </a>
         </Link>
         <div className="footer-container">
-          <span id="Year" className="footer-text">
-            {props.text}
-          </span>
-          <span className="footer-text1">{props.text1}</span>
+          <div className="footer-container1">
+            <span id="Year" className="footer-text">
+              {props.text}
+            </span>
+            <span className="footer-text1">{props.text1}</span>
+          </div>
           <a
             href={props.linkText}
             target="_blank"
@@ -72,12 +74,21 @@ const Footer = (props) => {
             width: auto;
             display: flex;
             direction: ltr;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+          }
+          .footer-container1 {
+            flex: 0 0 auto;
+            width: auto;
+            display: flex;
             align-items: flex-start;
             flex-direction: row;
           }
           .footer-text {
             color: var(--dl-color-gray-white);
             font-family: 'Exo 2';
+            margin-right: var(--dl-space-space-halfunit);
           }
           .footer-text1 {
             color: rgb(255, 255, 255);
@@ -115,10 +126,42 @@ const Footer = (props) => {
             margin-left: var(--dl-space-space-unit);
           }
 
+          @media (max-width: 1600px) {
+            .footer-container1 {
+              width: auto;
+              flex-direction: row;
+            }
+            .footer-text {
+              margin-right: var(--dl-space-space-halfunit);
+            }
+          }
+          @media (max-width: 1200px) {
+            .footer-container1 {
+              width: auto;
+              flex-direction: row;
+            }
+            .footer-text {
+              margin-right: var(--dl-space-space-halfunit);
+            }
+          }
+          @media (max-width: 991px) {
+            .footer-container {
+              align-items: flex-start;
+              flex-direction: column;
+            }
+            .footer-container1 {
+              width: auto;
+              margin-bottom: var(--dl-space-space-halfunit);
+              flex-direction: row;
+            }
+          }
           @media (max-width: 767px) {
             .footer-footer {
               padding-left: var(--dl-space-space-twounits);
               padding-right: var(--dl-space-space-twounits);
+            }
+            .footer-text {
+              margin-left: var(--dl-space-space-unit);
             }
             .footer-text1 {
               text-align: center;
@@ -144,6 +187,10 @@ const Footer = (props) => {
               flex-direction: column;
               justify-content: center;
             }
+            .footer-text {
+              margin-left: 0px;
+              margin-right: var(--dl-space-space-halfunit);
+            }
             .footer-text1 {
               margin-left: 0px;
               margin-right: 0px;
@@ -153,6 +200,9 @@ const Footer = (props) => {
               margin-left: 0px;
               margin-right: 0px;
               margin-bottom: var(--dl-space-space-unit);
+            }
+            .footer-icon4 {
+              margin-left: 0px;
             }
           }
         `}
@@ -166,7 +216,7 @@ Footer.defaultProps = {
   imageSrc: '/ninjalogo.svg',
   text: '2024',
   linkText: 'https://011.ninja',
-  text2: 'Code design by 011.ninja',
+  text2: 'Code Design by 011.ninja High-End JAMStack Solutions',
   text1: '©  SpiderNet, All Rights Reserved. ',
   rootClassName: '',
 }

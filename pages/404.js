@@ -126,7 +126,6 @@ const Page = (props) => {
             display: contents;
           }
           .page-image {
-            cursor: pointer;
             height: 3rem;
             text-decoration: none;
           }
@@ -198,12 +197,15 @@ const Page = (props) => {
             width: 100%;
             height: 100vh;
             display: flex;
-            padding: 32px;
             z-index: 100;
             position: absolute;
             transform: translateX(-100%);
             transition: 0.5s;
+            padding-top: var(--dl-space-space-twounits);
+            padding-left: var(--dl-space-space-threeunits);
+            padding-right: var(--dl-space-space-threeunits);
             flex-direction: column;
+            padding-bottom: var(--dl-space-space-twounits);
             justify-content: space-between;
             background-color: #111;
           }
@@ -223,8 +225,8 @@ const Page = (props) => {
             display: contents;
           }
           .page-logo {
-            width: 30px;
-            height: 30px;
+            width: auto;
+            height: 3rem;
             text-decoration: none;
           }
           .page-close-menu {
@@ -246,12 +248,14 @@ const Page = (props) => {
           }
           .page-link4 {
             color: var(--dl-color-gray-white);
-            margin-bottom: var(--dl-space-space-unit);
+            font-size: 2em;
+            margin-bottom: var(--dl-space-space-twounits);
             text-decoration: none;
           }
           .page-link5 {
             color: var(--dl-color-gray-white);
-            margin-bottom: var(--dl-space-space-unit);
+            font-size: 2em;
+            margin-bottom: var(--dl-space-space-twounits);
             text-decoration: none;
           }
           .page-buttons {
@@ -323,7 +327,7 @@ const Page = (props) => {
               height: var(--dl-size-size-small);
             }
             .page-logo {
-              height: 3.5rem;
+              height: 30px;
             }
             .page-link4 {
               margin-bottom: var(--dl-space-space-unit);
@@ -373,6 +377,10 @@ const Page = (props) => {
             }
             .page-container3 {
               padding: var(--dl-space-space-twounits);
+            }
+            .page-text2 {
+              padding: var(--dl-space-space-unit);
+              font-size: 14em;
             }
           }
         `}
