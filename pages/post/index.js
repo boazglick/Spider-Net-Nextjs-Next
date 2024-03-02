@@ -6,7 +6,7 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqQBResource from '../../resources/post-page-initial-props-tq_q-b'
+import postPageInitialPropsTqI8Resource from '../../resources/post-page-initial-props-tq_i8'
 
 const Post = (props) => {
   return (
@@ -15,6 +15,7 @@ const Post = (props) => {
         <Head>
           <title>Post - Spider Net Nextjs</title>
           <meta property="og:title" content="Post - Spider Net Nextjs" />
+          <meta name="robots" content="noindex" />
         </Head>
         <header data-thq="thq-navbar" className="post-navbar-interactive">
           <Link href="/">
@@ -498,7 +499,7 @@ export default Post
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqQBResource({
+    const response = await postPageInitialPropsTqI8Resource({
       ...context?.params,
     })
     if (!response) {

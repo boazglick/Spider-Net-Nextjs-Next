@@ -12,7 +12,7 @@ export default async function handler(req, res) {
         case 'page': {
           try {
             await res.revalidate(`/page`)
-            await res.revalidate(`/page/${data.id}`)
+            await res.revalidate(`/page/${data.slug}`)
           } catch (error) {
             console.log('Failed in clearing cache')
             console.log(error)
@@ -21,7 +21,7 @@ export default async function handler(req, res) {
         }
         case 'attachment': {
           try {
-            await res.revalidate(`/attachment/${data.id}`)
+            await res.revalidate(`/attachment/${data.slug}`)
             await res.revalidate(`/attachment`)
           } catch (error) {
             console.log('Failed in clearing cache')

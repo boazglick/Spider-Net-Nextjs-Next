@@ -6,8 +6,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqMcResource from '../../../resources/post-page-initial-props-tq_mc'
-import postPageInitialPathsTqZeResource from '../../../resources/post-page-initial-paths-tq_ze'
+import postPageInitialPropsTq1eResource from '../../../resources/post-page-initial-props-tq_1e'
+import postPageInitialPathsTqGuResource from '../../../resources/post-page-initial-paths-tq_gu'
 
 const Post1 = (props) => {
   return (
@@ -16,6 +16,7 @@ const Post1 = (props) => {
         <Head>
           <title>Post - Spider Net Nextjs</title>
           <meta property="og:title" content="Post - Spider Net Nextjs" />
+          <meta name="robots" content="noindex" />
         </Head>
         <header data-thq="thq-navbar" className="post1-navbar-interactive">
           <Link href="/">
@@ -508,7 +509,7 @@ export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqMcResource({
+    const response = await postPageInitialPropsTq1eResource({
       ...context?.params,
     })
     if (!response) {
@@ -532,7 +533,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqZeResource({})
+    const response = await postPageInitialPathsTqGuResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)

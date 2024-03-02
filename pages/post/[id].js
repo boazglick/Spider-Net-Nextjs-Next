@@ -10,8 +10,8 @@ import {
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqR4Resource from '../../resources/post-page-initial-props-tq_r4'
-import postPageInitialPathsTqOnResource from '../../resources/post-page-initial-paths-tq_on'
+import postPageInitialPropsTqXVResource from '../../resources/post-page-initial-props-tq_x-v'
+import postPageInitialPathsTqI3Resource from '../../resources/post-page-initial-paths-tq_i3'
 
 const Post11 = (props) => {
   return (
@@ -679,7 +679,7 @@ export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqR4Resource({
+    const response = await postPageInitialPropsTqXVResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -703,7 +703,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqOnResource({})
+    const response = await postPageInitialPathsTqI3Resource({})
     return {
       paths: (response || []).map((item) => {
         return {
