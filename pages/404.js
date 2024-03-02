@@ -58,7 +58,7 @@ const Page = (props) => {
                   <a className="page-link3">
                     <img
                       alt="image"
-                      src="8ff87394-9c44-45be-a984-e69c1b59aac1"
+                      src="/ninjalogo-1500h.png"
                       className="page-logo"
                     />
                   </a>

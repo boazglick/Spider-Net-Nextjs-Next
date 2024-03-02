@@ -60,7 +60,7 @@ const Contact = (props) => {
                   <a className="contact-link3">
                     <img
                       alt="image"
-                      src="/ninjalogo.svg"
+                      src="/ninjalogo-1500h.png"
                       className="contact-logo"
                     />
                   </a>

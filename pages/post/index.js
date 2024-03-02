@@ -6,7 +6,7 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTqLaResource from '../../resources/post-page-initial-props-tq_la'
+import postPageInitialPropsTqMgResource from '../../resources/post-page-initial-props-tq_mg'
 
 const Post = (props) => {
   return (
@@ -58,7 +58,7 @@ const Post = (props) => {
                   <a className="post-link3">
                     <img
                       alt="image"
-                      src="8ff87394-9c44-45be-a984-e69c1b59aac1"
+                      src="/ninjalogo-1500h.png"
                       className="post-logo"
                     />
                   </a>
@@ -516,7 +516,7 @@ export default Post
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqLaResource({
+    const response = await postPageInitialPropsTqMgResource({
       ...context?.params,
     })
     if (!response) {

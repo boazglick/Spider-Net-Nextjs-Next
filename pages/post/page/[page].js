@@ -6,8 +6,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
 import Footer from '../../../components/footer'
-import postPageInitialPropsTqSfResource from '../../../resources/post-page-initial-props-tq_sf'
-import postPageInitialPathsTqRCResource from '../../../resources/post-page-initial-paths-tq_r-c'
+import postPageInitialPropsTq0uResource from '../../../resources/post-page-initial-props-tq_0u'
+import postPageInitialPathsTqTnResource from '../../../resources/post-page-initial-paths-tq_tn'
 
 const Post1 = (props) => {
   return (
@@ -59,7 +59,7 @@ const Post1 = (props) => {
                   <a className="post1-link3">
                     <img
                       alt="image"
-                      src="8ff87394-9c44-45be-a984-e69c1b59aac1"
+                      src="/ninjalogo-1500h.png"
                       className="post1-logo"
                     />
                   </a>
@@ -526,7 +526,7 @@ export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqSfResource({
+    const response = await postPageInitialPropsTq0uResource({
       ...context?.params,
     })
     if (!response) {
@@ -550,7 +550,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqRCResource({})
+    const response = await postPageInitialPathsTqTnResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)

@@ -11,8 +11,8 @@ import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTq6jResource from '../../resources/post-page-initial-props-tq_6j'
-import postPageInitialPathsTqXMResource from '../../resources/post-page-initial-paths-tq_x-m'
+import postPageInitialPropsTq7rResource from '../../resources/post-page-initial-props-tq_7r'
+import postPageInitialPathsTqTfResource from '../../resources/post-page-initial-paths-tq_tf'
 
 const Post11 = (props) => {
   return (
@@ -68,7 +68,7 @@ const Post11 = (props) => {
                   <a className="post11-link3">
                     <img
                       alt="image"
-                      src="8ff87394-9c44-45be-a984-e69c1b59aac1"
+                      src="/ninjalogo-1500h.png"
                       className="post11-logo"
                     />
                   </a>
@@ -602,7 +602,7 @@ export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTq6jResource({
+    const response = await postPageInitialPropsTq7rResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -626,7 +626,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqXMResource({})
+    const response = await postPageInitialPathsTqTfResource({})
     return {
       paths: (response || []).map((item) => {
         return {
