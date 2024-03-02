@@ -46,7 +46,17 @@ class CustomDocument extends Document {
           ></link>
           <link
             rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+            data-tag="font"
+          ></link>
+          <link
+            rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+            data-tag="font"
+          ></link>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
             data-tag="font"
           ></link>
           <link
@@ -65,7 +75,7 @@ class CustomDocument extends Document {
           <div
             dangerouslySetInnerHTML={{
               __html:
-                "\n        <script defer src='https://unpkg.com/@teleporthq/teleport-custom-scripts'></script>\n        <script defer src='https://unpkg.com/@teleporthq/react-components/dist/animate-on-reveal.umd.js'></script>",
+                "\n        <script defer src='https://unpkg.com/@teleporthq/teleport-custom-scripts'></script>",
             }}
           ></div>
         </body>
