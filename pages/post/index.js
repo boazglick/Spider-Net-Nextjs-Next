@@ -6,7 +6,7 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTqMgResource from '../../resources/post-page-initial-props-tq_mg'
+import postPageInitialPropsTqBCResource from '../../resources/post-page-initial-props-tq_b-c'
 
 const Post = (props) => {
   return (
@@ -96,6 +96,15 @@ const Post = (props) => {
           <span className="post-text2">כל המאמרים</span>
         </div>
         <div className="post-container3">
+          <Link href="/">
+            <a className="post-link6">
+              <svg viewBox="0 0 1024 1024" className="post-icon14">
+                <path d="M810 810v-170h-170v170h170zM554 554h342v342h-342v-342zM810 384v-170h-170v170h170zM554 128h342v342h-342v-342zM384 810v-170h-170v170h170zM128 554h342v342h-342v-342zM384 384v-170h-170v170h170zM128 128h342v342h-342v-342z"></path>
+              </svg>
+            </a>
+          </Link>
+        </div>
+        <div className="post-container4">
           <DataProvider
             renderSuccess={(params) => (
               <>
@@ -105,7 +114,7 @@ const Post = (props) => {
                     <>
                       <Link href={`/post/${PostEntities?.id}`}>
                         <a>
-                          <div className="post-container4">
+                          <div className="post-container5">
                             <h1 className="post-text3">
                               {PostEntities?.title?.rendered}
                             </h1>
@@ -355,23 +364,45 @@ const Post = (props) => {
           }
           .post-container3 {
             flex: 0 0 auto;
-            width: auto;
+            width: 95%;
+            height: auto;
+            display: flex;
+            padding: var(--dl-space-space-unit);
+            align-items: flex-end;
+          }
+          .post-link6 {
+            display: contents;
+          }
+          .post-icon14 {
+            width: 35px;
+            height: 35px;
+            text-decoration: none;
+          }
+          .post-container4 {
+            flex: 0 0 auto;
+            width: 95%;
             display: flex;
             margin-top: var(--dl-space-space-fiveunits);
             align-items: flex-start;
             margin-bottom: var(--dl-space-space-fiveunits);
             flex-direction: column;
           }
-          .post-container4 {
+          .post-container5 {
             width: 100%;
             cursor: pointer;
             display: flex;
             padding: var(--dl-space-space-unit);
             align-items: center;
+            border-color: var(--dl-color-gray-900);
+            border-width: 1px;
             border-radius: 20px;
             flex-direction: row;
             justify-content: space-between;
             text-decoration: none;
+            border-top-width: 0px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            border-bottom-width: 1px;
           }
           .post-text3 {
             margin: var(--dl-space-space-unit);
@@ -392,13 +423,13 @@ const Post = (props) => {
             border-radius: 20px;
           }
           @media (max-width: 1600px) {
-            .post-container4 {
+            .post-container5 {
               gap: 0;
               justify-content: space-between;
             }
           }
           @media (max-width: 1200px) {
-            .post-container4 {
+            .post-container5 {
               gap: 0;
               justify-content: space-between;
             }
@@ -407,7 +438,7 @@ const Post = (props) => {
             .post-image {
               height: 3rem;
             }
-            .post-container4 {
+            .post-container5 {
               gap: 0;
               justify-content: space-between;
             }
@@ -443,7 +474,7 @@ const Post = (props) => {
               margin-left: 0;
               margin-bottom: var(--dl-space-space-unit);
             }
-            .post-container4 {
+            .post-container5 {
               gap: 0;
               padding: var(--dl-space-space-unit);
               justify-content: space-between;
@@ -488,9 +519,12 @@ const Post = (props) => {
               fill: var(--dl-color-gray-white);
             }
             .post-container3 {
-              padding: var(--dl-space-space-unit);
+              height: auto;
             }
             .post-container4 {
+              padding: var(--dl-space-space-unit);
+            }
+            .post-container5 {
               gap: 0;
               justify-content: space-between;
             }
@@ -516,7 +550,7 @@ export default Post
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqMgResource({
+    const response = await postPageInitialPropsTqBCResource({
       ...context?.params,
     })
     if (!response) {

@@ -116,6 +116,15 @@ const HomePage = (props) => {
         <div className="home-page-top-title">
           <span className="home-page-text2">כל המאמרים</span>
         </div>
+        <div className="home-page-container3">
+          <Link href="/post">
+            <a className="home-page-link6">
+              <svg viewBox="0 0 1024 1024" className="home-page-icon14">
+                <path d="M86 470h596v84h-596v-84zM86 726h596v84h-596v-84zM86 214h596v84h-596v-84zM768 470v-44h128v40l-76 88h76v44h-128v-40l76-88h-76zM810 342v-128h-42v-44h86v172h-44zM768 726v-44h128v172h-128v-44h86v-20h-44v-44h44v-20h-86z"></path>
+              </svg>
+            </a>
+          </Link>
+        </div>
         <div className="home-page-grid">
           <DataProvider
             renderSuccess={(params) => (
@@ -126,7 +135,7 @@ const HomePage = (props) => {
                     <>
                       <Link href={`/post/${context_y2hhze?.id}`}>
                         <a>
-                          <div className="home-page-container3">
+                          <div className="home-page-container4">
                             <div className="home-page-image1">
                               <DataProvider
                                 fetchData={(params) =>
@@ -396,6 +405,22 @@ const HomePage = (props) => {
             text-align: center;
             font-weight: 900;
           }
+          .home-page-container3 {
+            flex: 0 0 auto;
+            width: 95%;
+            height: auto;
+            display: flex;
+            padding: var(--dl-space-space-unit);
+            align-items: flex-end;
+          }
+          .home-page-link6 {
+            display: contents;
+          }
+          .home-page-icon14 {
+            width: 35px;
+            height: 35px;
+            text-decoration: none;
+          }
           .home-page-grid {
             flex: 0 0 auto;
             width: 95%;
@@ -404,12 +429,12 @@ const HomePage = (props) => {
             position: relative;
             direction: rtl;
             align-self: center;
-            margin-top: var(--dl-space-space-fourunits);
+            margin-top: var(--dl-space-space-twounits);
             align-items: flex-start;
-            margin-bottom: var(--dl-space-space-fourunits);
+            margin-bottom: var(--dl-space-space-twounits);
             grid-template-columns: repeat(4, 1fr);
           }
-          .home-page-container3 {
+          .home-page-container4 {
             flex: 0 0 auto;
             width: auto;
             cursor: pointer;
@@ -548,6 +573,9 @@ const HomePage = (props) => {
             }
             .home-page-icon12 {
               fill: var(--dl-color-gray-white);
+            }
+            .home-page-container3 {
+              height: auto;
             }
           }
         `}

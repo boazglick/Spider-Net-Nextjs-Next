@@ -11,8 +11,8 @@ import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTq7rResource from '../../resources/post-page-initial-props-tq_7r'
-import postPageInitialPathsTqTfResource from '../../resources/post-page-initial-paths-tq_tf'
+import postPageInitialPropsTqDAResource from '../../resources/post-page-initial-props-tq_d-a'
+import postPageInitialPathsTqXZResource from '../../resources/post-page-initial-paths-tq_x-z'
 
 const Post11 = (props) => {
   return (
@@ -602,7 +602,7 @@ export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTq7rResource({
+    const response = await postPageInitialPropsTqDAResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -626,7 +626,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqTfResource({})
+    const response = await postPageInitialPathsTqXZResource({})
     return {
       paths: (response || []).map((item) => {
         return {

@@ -6,8 +6,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
 import Footer from '../../../components/footer'
-import postPageInitialPropsTq0uResource from '../../../resources/post-page-initial-props-tq_0u'
-import postPageInitialPathsTqTnResource from '../../../resources/post-page-initial-paths-tq_tn'
+import postPageInitialPropsTqIvResource from '../../../resources/post-page-initial-props-tq_iv'
+import postPageInitialPathsTqUResource from '../../../resources/post-page-initial-paths-tq__u'
 
 const Post1 = (props) => {
   return (
@@ -106,6 +106,15 @@ const Post1 = (props) => {
           <span className="post1-text2">כל המאמרים</span>
         </div>
         <div className="post1-container3">
+          <Link href="/">
+            <a className="post1-link6">
+              <svg viewBox="0 0 1024 1024" className="post1-icon14">
+                <path d="M810 810v-170h-170v170h170zM554 554h342v342h-342v-342zM810 384v-170h-170v170h170zM554 128h342v342h-342v-342zM384 810v-170h-170v170h170zM128 554h342v342h-342v-342zM384 384v-170h-170v170h170zM128 128h342v342h-342v-342z"></path>
+              </svg>
+            </a>
+          </Link>
+        </div>
+        <div className="post1-container4">
           <DataProvider
             renderSuccess={(params) => (
               <>
@@ -115,7 +124,7 @@ const Post1 = (props) => {
                     <>
                       <Link href={`/post/${PostEntities?.id}`}>
                         <a>
-                          <div className="post1-container4">
+                          <div className="post1-container5">
                             <h1 className="post1-text3">
                               {PostEntities?.title?.rendered}
                             </h1>
@@ -365,23 +374,45 @@ const Post1 = (props) => {
           }
           .post1-container3 {
             flex: 0 0 auto;
-            width: auto;
+            width: 95%;
+            height: auto;
+            display: flex;
+            padding: var(--dl-space-space-unit);
+            align-items: flex-end;
+          }
+          .post1-link6 {
+            display: contents;
+          }
+          .post1-icon14 {
+            width: 35px;
+            height: 35px;
+            text-decoration: none;
+          }
+          .post1-container4 {
+            flex: 0 0 auto;
+            width: 95%;
             display: flex;
             margin-top: var(--dl-space-space-fiveunits);
             align-items: flex-start;
             margin-bottom: var(--dl-space-space-fiveunits);
             flex-direction: column;
           }
-          .post1-container4 {
+          .post1-container5 {
             width: 100%;
             cursor: pointer;
             display: flex;
             padding: var(--dl-space-space-unit);
             align-items: center;
+            border-color: var(--dl-color-gray-900);
+            border-width: 1px;
             border-radius: 20px;
             flex-direction: row;
             justify-content: space-between;
             text-decoration: none;
+            border-top-width: 0px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            border-bottom-width: 1px;
           }
           .post1-text3 {
             margin: var(--dl-space-space-unit);
@@ -402,13 +433,13 @@ const Post1 = (props) => {
             border-radius: 20px;
           }
           @media (max-width: 1600px) {
-            .post1-container4 {
+            .post1-container5 {
               gap: 0;
               justify-content: space-between;
             }
           }
           @media (max-width: 1200px) {
-            .post1-container4 {
+            .post1-container5 {
               gap: 0;
               justify-content: space-between;
             }
@@ -417,7 +448,7 @@ const Post1 = (props) => {
             .post1-image {
               height: 3rem;
             }
-            .post1-container4 {
+            .post1-container5 {
               gap: 0;
               justify-content: space-between;
             }
@@ -453,7 +484,7 @@ const Post1 = (props) => {
               margin-left: 0;
               margin-bottom: var(--dl-space-space-unit);
             }
-            .post1-container4 {
+            .post1-container5 {
               gap: 0;
               padding: var(--dl-space-space-unit);
               justify-content: space-between;
@@ -498,9 +529,12 @@ const Post1 = (props) => {
               fill: var(--dl-color-gray-white);
             }
             .post1-container3 {
-              padding: var(--dl-space-space-unit);
+              height: auto;
             }
             .post1-container4 {
+              padding: var(--dl-space-space-unit);
+            }
+            .post1-container5 {
               gap: 0;
               justify-content: space-between;
             }
@@ -526,7 +560,7 @@ export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTq0uResource({
+    const response = await postPageInitialPropsTqIvResource({
       ...context?.params,
     })
     if (!response) {
@@ -550,7 +584,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqTnResource({})
+    const response = await postPageInitialPathsTqUResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)
