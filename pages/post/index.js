@@ -6,7 +6,7 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTqWcResource from '../../resources/post-page-initial-props-tq_wc'
+import postPageInitialPropsTqRLResource from '../../resources/post-page-initial-props-tq_r-l'
 
 const Post = (props) => {
   useEffect(() => import('@lottiefiles/lottie-player'), [])
@@ -602,7 +602,7 @@ export default Post
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqWcResource({
+    const response = await postPageInitialPropsTqRLResource({
       ...context?.params,
     })
     if (!response) {

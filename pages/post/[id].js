@@ -11,8 +11,8 @@ import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTqVOResource from '../../resources/post-page-initial-props-tq_v-o'
-import postPageInitialPathsTqKcResource from '../../resources/post-page-initial-paths-tq_kc'
+import postPageInitialPropsTqJResource from '../../resources/post-page-initial-props-tq_j_'
+import postPageInitialPathsTqHrResource from '../../resources/post-page-initial-paths-tq_hr'
 
 const Post11 = (props) => {
   useEffect(() => import('@lottiefiles/lottie-player'), [])
@@ -643,7 +643,7 @@ export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqVOResource({
+    const response = await postPageInitialPropsTqJResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -667,7 +667,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqKcResource({})
+    const response = await postPageInitialPathsTqHrResource({})
     return {
       paths: (response || []).map((item) => {
         return {

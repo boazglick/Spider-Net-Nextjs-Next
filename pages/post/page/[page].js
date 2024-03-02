@@ -6,8 +6,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
 import Footer from '../../../components/footer'
-import postPageInitialPropsTqLResource from '../../../resources/post-page-initial-props-tq_-l'
-import postPageInitialPathsTqAxResource from '../../../resources/post-page-initial-paths-tq_ax'
+import postPageInitialPropsTqSeResource from '../../../resources/post-page-initial-props-tq_se'
+import postPageInitialPathsTqUsResource from '../../../resources/post-page-initial-paths-tq_us'
 
 const Post1 = (props) => {
   useEffect(() => import('@lottiefiles/lottie-player'), [])
@@ -612,7 +612,7 @@ export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqLResource({
+    const response = await postPageInitialPropsTqSeResource({
       ...context?.params,
     })
     if (!response) {
@@ -636,7 +636,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqAxResource({})
+    const response = await postPageInitialPathsTqUsResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)
