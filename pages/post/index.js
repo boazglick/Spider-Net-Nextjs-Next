@@ -6,7 +6,7 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqWTResource from '../../resources/post-page-initial-props-tq_w-t'
+import postPageInitialPropsTq6Resource from '../../resources/post-page-initial-props-tq_-6'
 
 const Post = (props) => {
   return (
@@ -123,10 +123,10 @@ const Post = (props) => {
             <span className="post-text3">2024</span>
             <div>
               <div className="post-container6">
-                <Script
-                  html={`<script>document.getElementById("year").innerHTML = new Date().getFullYear();
-</script>`}
-                ></Script>
+                <React.Fragment>
+                  <Script>{`document.getElementById("year").innerHTML = new Date().getFullYear();
+`}</Script>
+                </React.Fragment>
               </div>
             </div>
             <span className="post-text4">
@@ -498,7 +498,7 @@ export default Post
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqWTResource({
+    const response = await postPageInitialPropsTq6Resource({
       ...context?.params,
     })
     if (!response) {

@@ -58,7 +58,7 @@ const Contact = (props) => {
                   <a className="contact-link3">
                     <img
                       alt="image"
-                      src="/path15-1500h.png"
+                      src="/ninjalogo.svg"
                       className="contact-logo"
                     />
                   </a>
@@ -107,9 +107,12 @@ const Contact = (props) => {
         <div className="contact-container3">
           <div className="contact-container4">
             <div className="contact-container5">
-              <Script
-                html={`<script type="text/javascript" src="https://form.jotform.com/jsform/240606311524445"></script>`}
-              ></Script>
+              <React.Fragment>
+                <Script
+                  type="text/javascript"
+                  src="https://form.jotform.com/jsform/240606311524445"
+                />
+              </React.Fragment>
             </div>
           </div>
         </div>
@@ -119,10 +122,10 @@ const Contact = (props) => {
             <span className="contact-text3">2024</span>
             <div>
               <div className="contact-container8">
-                <Script
-                  html={`<script>document.getElementById("year").innerHTML = new Date().getFullYear();
-</script>`}
-                ></Script>
+                <React.Fragment>
+                  <Script>{`document.getElementById("year").innerHTML = new Date().getFullYear();
+`}</Script>
+                </React.Fragment>
               </div>
             </div>
             <span className="contact-text4">
@@ -191,7 +194,7 @@ const Contact = (props) => {
             display: contents;
           }
           .contact-image {
-            height: 2rem;
+            height: 3rem;
             text-decoration: none;
           }
           .contact-desktop-menu {
@@ -269,7 +272,7 @@ const Contact = (props) => {
             transition: 0.5s;
             flex-direction: column;
             justify-content: space-between;
-            background-color: #fff;
+            background-color: #111;
           }
           .contact-nav {
             display: flex;
@@ -296,8 +299,9 @@ const Contact = (props) => {
             justify-content: center;
           }
           .contact-icon06 {
-            width: var(--dl-size-size-xsmall);
-            height: var(--dl-size-size-xsmall);
+            fill: var(--dl-color-gray-white);
+            width: var(--dl-size-size-small);
+            height: var(--dl-size-size-small);
           }
           .contact-links1 {
             flex: 0 0 auto;
@@ -307,10 +311,12 @@ const Contact = (props) => {
             flex-direction: column;
           }
           .contact-link4 {
+            color: var(--dl-color-gray-white);
             margin-bottom: var(--dl-space-space-unit);
             text-decoration: none;
           }
           .contact-link5 {
+            color: var(--dl-color-gray-white);
             margin-bottom: var(--dl-space-space-unit);
             text-decoration: none;
           }
@@ -323,16 +329,19 @@ const Contact = (props) => {
             justify-content: space-between;
           }
           .contact-icon08 {
+            fill: var(--dl-color-gray-white);
             width: var(--dl-size-size-xsmall);
             height: var(--dl-size-size-xsmall);
             margin-left: var(--dl-space-space-unit);
           }
           .contact-icon10 {
+            fill: var(--dl-color-gray-white);
             width: var(--dl-size-size-xsmall);
             height: var(--dl-size-size-xsmall);
             margin-left: var(--dl-space-space-unit);
           }
           .contact-icon12 {
+            fill: var(--dl-color-gray-white);
             width: var(--dl-size-size-xsmall);
             height: var(--dl-size-size-xsmall);
             margin-left: var(--dl-space-space-unit);
@@ -446,10 +455,18 @@ const Contact = (props) => {
               font-weight: 900;
             }
           }
+          @media (max-width: 991px) {
+            .contact-image {
+              height: 3rem;
+            }
+          }
           @media (max-width: 767px) {
             .contact-navbar-interactive {
               padding-left: var(--dl-space-space-twounits);
               padding-right: var(--dl-space-space-twounits);
+            }
+            .contact-image {
+              height: 3.5rem;
             }
             .contact-desktop-menu {
               display: none;
@@ -458,6 +475,14 @@ const Contact = (props) => {
               display: flex;
               align-items: center;
               justify-content: center;
+            }
+            .contact-icon04 {
+              fill: var(--dl-color-gray-white);
+              width: var(--dl-size-size-small);
+              height: var(--dl-size-size-small);
+            }
+            .contact-logo {
+              height: 3.5rem;
             }
             .contact-link4 {
               margin-bottom: var(--dl-space-space-unit);
@@ -483,10 +508,37 @@ const Contact = (props) => {
           }
           @media (max-width: 479px) {
             .contact-navbar-interactive {
-              padding: var(--dl-space-space-unit);
+              padding-top: var(--dl-space-space-unit);
+              padding-left: var(--dl-space-space-unit);
+              padding-right: var(--dl-space-space-unit);
+              padding-bottom: var(--dl-space-space-unit);
+            }
+            .contact-image {
+              height: 3.5rem;
             }
             .contact-mobile-menu {
               padding: 16px;
+              background-color: #111111;
+            }
+            .contact-icon06 {
+              fill: var(--dl-color-gray-white);
+              width: var(--dl-size-size-small);
+              height: var(--dl-size-size-small);
+            }
+            .contact-link4 {
+              color: var(--dl-color-gray-white);
+            }
+            .contact-link5 {
+              color: var(--dl-color-gray-white);
+            }
+            .contact-icon08 {
+              fill: var(--dl-color-gray-white);
+            }
+            .contact-icon10 {
+              fill: var(--dl-color-gray-white);
+            }
+            .contact-icon12 {
+              fill: var(--dl-color-gray-white);
             }
             .contact-top-title {
               height: 200px;

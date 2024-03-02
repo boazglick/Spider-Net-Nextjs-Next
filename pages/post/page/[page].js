@@ -6,8 +6,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqHResource from '../../../resources/post-page-initial-props-tq_h_'
-import postPageInitialPathsTqEhResource from '../../../resources/post-page-initial-paths-tq_eh'
+import postPageInitialPropsTqVuResource from '../../../resources/post-page-initial-props-tq_vu'
+import postPageInitialPathsTqUyResource from '../../../resources/post-page-initial-paths-tq_uy'
 
 const Post1 = (props) => {
   return (
@@ -133,10 +133,10 @@ const Post1 = (props) => {
             <span className="post1-text3">2024</span>
             <div>
               <div className="post1-container6">
-                <Script
-                  html={`<script>document.getElementById("year").innerHTML = new Date().getFullYear();
-</script>`}
-                ></Script>
+                <React.Fragment>
+                  <Script>{`document.getElementById("year").innerHTML = new Date().getFullYear();
+`}</Script>
+                </React.Fragment>
               </div>
             </div>
             <span className="post1-text4">
@@ -508,7 +508,7 @@ export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqHResource({
+    const response = await postPageInitialPropsTqVuResource({
       ...context?.params,
     })
     if (!response) {
@@ -532,7 +532,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqEhResource({})
+    const response = await postPageInitialPathsTqUyResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)

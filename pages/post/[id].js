@@ -10,8 +10,8 @@ import {
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqUResource from '../../resources/post-page-initial-props-tq_-u'
-import postPageInitialPathsTqKResource from '../../resources/post-page-initial-paths-tq_-k'
+import postPageInitialPropsTqRhResource from '../../resources/post-page-initial-props-tq_rh'
+import postPageInitialPathsTqRxResource from '../../resources/post-page-initial-paths-tq_rx'
 
 const Post11 = (props) => {
   return (
@@ -166,10 +166,9 @@ const Post11 = (props) => {
                     </span>
                   </div>
                   <div className="post11-container06">
-                    <Script
-                      html={PostEntity?.content?.rendered}
-                      className="post11-html-node"
-                    ></Script>
+                    <React.Fragment>
+                      PostEntity?.content?.rendered
+                    </React.Fragment>
                   </div>
                 </div>
               </div>
@@ -185,10 +184,10 @@ const Post11 = (props) => {
             <span className="post11-text4">2024</span>
             <div>
               <div className="post11-container09">
-                <Script
-                  html={`<script>document.getElementById("year").innerHTML = new Date().getFullYear();
-</script>`}
-                ></Script>
+                <React.Fragment>
+                  <Script>{`document.getElementById("year").innerHTML = new Date().getFullYear();
+`}</Script>
+                </React.Fragment>
               </div>
             </div>
             <span className="post11-text5">
@@ -247,7 +246,7 @@ const Post11 = (props) => {
             display: contents;
           }
           .post11-image {
-            height: 2rem;
+            height: 3rem;
             text-decoration: none;
           }
           .post11-desktop-menu {
@@ -341,7 +340,7 @@ const Post11 = (props) => {
             display: contents;
           }
           .post11-logo {
-            height: 2rem;
+            height: 3rem;
             text-decoration: none;
           }
           .post11-close-menu {
@@ -350,8 +349,8 @@ const Post11 = (props) => {
             justify-content: center;
           }
           .post11-icon06 {
-            width: var(--dl-size-size-xsmall);
-            height: var(--dl-size-size-xsmall);
+            width: var(--dl-size-size-small);
+            height: var(--dl-size-size-small);
           }
           .post11-links1 {
             flex: 0 0 auto;
@@ -574,6 +573,9 @@ const Post11 = (props) => {
               padding-left: var(--dl-space-space-twounits);
               padding-right: var(--dl-space-space-twounits);
             }
+            .post11-image {
+              height: 3.5rem;
+            }
             .post11-desktop-menu {
               display: none;
             }
@@ -581,6 +583,13 @@ const Post11 = (props) => {
               display: flex;
               align-items: center;
               justify-content: center;
+            }
+            .post11-icon04 {
+              width: var(--dl-size-size-small);
+              height: var(--dl-size-size-small);
+            }
+            .post11-logo {
+              height: 3.5rem;
             }
             .post11-link4 {
               margin-bottom: var(--dl-space-space-unit);
@@ -666,7 +675,7 @@ export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqUResource({
+    const response = await postPageInitialPropsTqRhResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -690,7 +699,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqKResource({})
+    const response = await postPageInitialPathsTqRxResource({})
     return {
       paths: (response || []).map((item) => {
         return {

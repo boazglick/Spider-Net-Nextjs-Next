@@ -5,8 +5,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import pagePageInitialPropsTqU4Resource from '../../resources/page-page-initial-props-tq_u4'
-import pagePageInitialPathsTq4Resource from '../../resources/page-page-initial-paths-tq_-4'
+import pagePageInitialPropsTqAtResource from '../../resources/page-page-initial-props-tq_at'
+import pagePageInitialPathsTq2aResource from '../../resources/page-page-initial-paths-tq_2a'
 
 const Page11 = (props) => {
   return (
@@ -22,10 +22,7 @@ const Page11 = (props) => {
               <div className="page11-container1">
                 <h1>{PageEntity?.title?.rendered}</h1>
                 <div className="page11-container2">
-                  <Script
-                    html={PageEntity?.content?.rendered}
-                    className="page11-html-node"
-                  ></Script>
+                  <React.Fragment>PageEntity?.content?.rendered</React.Fragment>
                 </div>
               </div>
             </>
@@ -77,7 +74,7 @@ export default Page11
 
 export async function getStaticProps(context) {
   try {
-    const response = await pagePageInitialPropsTqU4Resource({
+    const response = await pagePageInitialPropsTqAtResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -101,7 +98,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await pagePageInitialPathsTq4Resource({})
+    const response = await pagePageInitialPathsTq2aResource({})
     return {
       paths: (response || []).map((item) => {
         return {

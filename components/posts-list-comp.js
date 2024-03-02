@@ -85,9 +85,9 @@ const PostsListComp = (props) => {
                             </span>
                           </div>
                           <div>
-                            <Script
-                              html={Posts_List?.excerpt?.rendered}
-                            ></Script>
+                            <React.Fragment>
+                              Posts_List?.excerpt?.rendered
+                            </React.Fragment>
                           </div>
                         </div>
                       </a>

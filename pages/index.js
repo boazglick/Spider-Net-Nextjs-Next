@@ -163,9 +163,9 @@ const Home = (props) => {
                               </span>
                             </div>
                             <div>
-                              <Script
-                                html={PostlistHome?.excerpt?.rendered}
-                              ></Script>
+                              <React.Fragment>
+                                PostlistHome?.excerpt?.rendered
+                              </React.Fragment>
                             </div>
                           </div>
                         </a>
@@ -225,10 +225,10 @@ const Home = (props) => {
             <span className="home-text4">2024</span>
             <div>
               <div className="home-container7">
-                <Script
-                  html={`<script>document.getElementById("year").innerHTML = new Date().getFullYear();
-</script>`}
-                ></Script>
+                <React.Fragment>
+                  <Script>{`document.getElementById("year").innerHTML = new Date().getFullYear();
+`}</Script>
+                </React.Fragment>
               </div>
             </div>
             <span className="home-text5">
@@ -287,7 +287,7 @@ const Home = (props) => {
             display: contents;
           }
           .home-image {
-            height: 2rem;
+            height: 3rem;
             text-decoration: none;
           }
           .home-desktop-menu {
@@ -604,6 +604,9 @@ const Home = (props) => {
               padding-left: var(--dl-space-space-twounits);
               padding-right: var(--dl-space-space-twounits);
             }
+            .home-image {
+              height: 3.5rem;
+            }
             .home-desktop-menu {
               display: none;
             }
@@ -611,6 +614,10 @@ const Home = (props) => {
               display: flex;
               align-items: center;
               justify-content: center;
+            }
+            .home-icon04 {
+              width: var(--dl-size-size-small);
+              height: var(--dl-size-size-small);
             }
             .home-link4 {
               margin-bottom: var(--dl-space-space-unit);
@@ -643,6 +650,13 @@ const Home = (props) => {
             }
             .home-mobile-menu {
               padding: 16px;
+            }
+            .home-logo {
+              height: 3.5rem;
+            }
+            .home-icon06 {
+              width: var(--dl-size-size-small);
+              height: var(--dl-size-size-small);
             }
             .home-text2 {
               font-size: 3em;
