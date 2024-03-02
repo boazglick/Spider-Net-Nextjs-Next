@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 
 import {
@@ -12,6 +12,7 @@ import PropTypes from 'prop-types'
 import homePostsResource from '../resources/home-posts'
 
 const HomePosts = (props) => {
+  useEffect(() => import('@lottiefiles/lottie-player'), [])
   return (
     <>
       <div className="home-posts-container">
@@ -59,9 +60,35 @@ const HomePosts = (props) => {
                                 <>
                                   <img
                                     alt={props.imageAlt}
-                                    src={context_67uhhg?.source_url}
+                                    src={
+                                      context_67uhhg?.source_url ||
+                                      'https://images.unsplash.com/photo-1506112573664-1a1b66d93ff3?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDR8fHZpZXd8ZW58MHx8fHwxNzA5NDA1MjI2fDA&ixlib=rb-4.0.3&h=300'
+                                    }
                                     className="home-posts-image1"
                                   />
+                                </>
+                              )}
+                              renderLoading={() => (
+                                <>
+                                  <div className="home-posts-div">
+                                    <lottie-player
+                                      src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                                      autoplay="true"
+                                      speed="1"
+                                      background="transparent"
+                                      loop="true"
+                                    ></lottie-player>
+                                  </div>
+                                  <span className="home-posts-loading1">
+                                    טוען נתונים ...
+                                  </span>
+                                </>
+                              )}
+                              renderError={() => (
+                                <>
+                                  <span className="home-posts-error1">
+                                    אירעה שגיאה בטעינת הנתונים
+                                  </span>
                                 </>
                               )}
                               params={{
@@ -99,6 +126,29 @@ const HomePosts = (props) => {
                   </>
                 )}
               />
+            </>
+          )}
+          renderLoading={() => (
+            <>
+              <div className="home-posts-container3">
+                <div className="home-posts-div1">
+                  <lottie-player
+                    src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                    autoplay="true"
+                    speed="1"
+                    background="transparent"
+                    loop="true"
+                  ></lottie-player>
+                </div>
+                <span className="home-posts-loading3">טוען נתונים ...</span>
+              </div>
+            </>
+          )}
+          renderError={() => (
+            <>
+              <span className="home-posts-error3">
+                אירעה שגיאה בטעינת הנתונים
+              </span>
             </>
           )}
           initialData={props.contextYx3d9nProp}
@@ -145,6 +195,18 @@ const HomePosts = (props) => {
             border-radius: 20px;
             margin-bottom: var(--dl-space-space-unit);
           }
+          .home-posts-error1 {
+            padding: 8px;
+          }
+          .home-posts-div {
+            width: 100%;
+            height: 76px;
+          }
+          .home-posts-loading1 {
+            width: 100%;
+            padding: 8px;
+            text-align: center;
+          }
           .home-posts-text {
             width: 100%;
             height: 60px;
@@ -175,9 +237,36 @@ const HomePosts = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
+          .home-posts-error3 {
+            padding: 8px;
+          }
+          .home-posts-container3 {
+            flex: 0 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          .home-posts-div1 {
+            width: 100%;
+            height: 76px;
+          }
+          .home-posts-loading3 {
+            width: 100%;
+            padding: 8px;
+            text-align: center;
+          }
           @media (max-width: 1200px) {
             .home-posts-container {
               grid-template-columns: repeat(3, 1fr);
+            }
+            .home-posts-error1 {
+              width: 100%;
+              text-align: center;
+            }
+            .home-posts-error3 {
+              width: 100%;
+              text-align: center;
             }
           }
           @media (max-width: 991px) {

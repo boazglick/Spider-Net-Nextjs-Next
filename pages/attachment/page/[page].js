@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqBxResource from '../../../resources/attachment-page-initial-props-tq_bx'
-import attachmentPageInitialPathsTqElResource from '../../../resources/attachment-page-initial-paths-tq_el'
+import attachmentPageInitialPropsTqOuResource from '../../../resources/attachment-page-initial-props-tq_ou'
+import attachmentPageInitialPathsTqDHResource from '../../../resources/attachment-page-initial-paths-tq_d-h'
 
 const Attachment11 = (props) => {
   return (
@@ -26,7 +26,9 @@ const Attachment11 = (props) => {
                 renderItem={(AttachmentEntities) => (
                   <>
                     <div className="attachment11-container1">
-                      <h1>{AttachmentEntities?.title?.rendered}</h1>
+                      <h1 className="attachment11-text">
+                        {AttachmentEntities?.title?.rendered}
+                      </h1>
                     </div>
                   </>
                 )}
@@ -44,6 +46,7 @@ const Attachment11 = (props) => {
             width: 100%;
             display: flex;
             overflow: auto;
+            direction: rtl;
             min-height: 100vh;
             align-items: center;
             flex-direction: column;
@@ -54,6 +57,16 @@ const Attachment11 = (props) => {
             display: flex;
             align-items: center;
             flex-direction: column;
+          }
+          .attachment11-text {
+            margin: var(--dl-space-space-halfunit);
+            padding: var(--dl-space-space-unit);
+          }
+          @media (max-width: 1200px) {
+            .attachment11-text {
+              margin: var(--dl-space-space-halfunit);
+              padding: var(--dl-space-space-unit);
+            }
           }
         `}
       </style>
@@ -73,7 +86,7 @@ export default Attachment11
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqBxResource({
+    const response = await attachmentPageInitialPropsTqOuResource({
       ...context?.params,
     })
     if (!response) {
@@ -97,7 +110,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await attachmentPageInitialPathsTqElResource({})
+    const response = await attachmentPageInitialPathsTqDHResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)

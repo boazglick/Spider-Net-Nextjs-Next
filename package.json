@@ -18,6 +18,7 @@
     "@teleporthq/cms-mappers": "latest",
     "dangerous-html": "0.1.13",
     "@teleporthq/react-components": "latest",
+    "@lottiefiles/lottie-player": "1.6.0",
     "prop-types": "15.7.2"
   },
   "engines": {

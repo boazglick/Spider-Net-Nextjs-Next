@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 
@@ -6,9 +6,10 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTqBCResource from '../../resources/post-page-initial-props-tq_b-c'
+import postPageInitialPropsTqWcResource from '../../resources/post-page-initial-props-tq_wc'
 
 const Post = (props) => {
+  useEffect(() => import('@lottiefiles/lottie-player'), [])
   return (
     <>
       <div className="post-container">
@@ -116,7 +117,7 @@ const Post = (props) => {
                         <a>
                           <div className="post-container5">
                             <h1 className="post-text3">
-                              {PostEntities?.title?.rendered}
+                              {PostEntities?.title?.rendered || ' '}
                             </h1>
                             <DataProvider
                               fetchData={(params) =>
@@ -136,10 +137,38 @@ const Post = (props) => {
                               renderSuccess={(context_1uja4) => (
                                 <>
                                   <img
-                                    src={context_1uja4?.source_url}
+                                    src={
+                                      context_1uja4?.source_url ||
+                                      'https://images.unsplash.com/photo-1506112573664-1a1b66d93ff3?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDR8fHZpZXd8ZW58MHx8fHwxNzA5NDA1MjI2fDA&ixlib=rb-4.0.3&h=300'
+                                    }
                                     alt="image"
                                     className="post-image1"
                                   />
+                                </>
+                              )}
+                              renderLoading={() => (
+                                <>
+                                  <div className="post-container6">
+                                    <div className="post-div">
+                                      <lottie-player
+                                        src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                                        autoplay="true"
+                                        speed="1"
+                                        background="transparent"
+                                        loop="true"
+                                      ></lottie-player>
+                                    </div>
+                                    <span className="post-loading1">
+                                      טוען נתונים ...
+                                    </span>
+                                  </div>
+                                </>
+                              )}
+                              renderError={() => (
+                                <>
+                                  <span className="post-error1">
+                                    אירעה שגיאה בטעינת הנתונים
+                                  </span>
                                 </>
                               )}
                               params={{
@@ -422,6 +451,25 @@ const Post = (props) => {
             object-fit: cover;
             border-radius: 20px;
           }
+          .post-error1 {
+            padding: 8px;
+          }
+          .post-container6 {
+            flex: 0 0 auto;
+            width: 200px;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          .post-div {
+            width: 100%;
+            height: 76px;
+          }
+          .post-loading1 {
+            width: 100%;
+            padding: 8px;
+            text-align: center;
+          }
           @media (max-width: 1600px) {
             .post-container5 {
               gap: 0;
@@ -432,6 +480,10 @@ const Post = (props) => {
             .post-container5 {
               gap: 0;
               justify-content: space-between;
+            }
+            .post-error1 {
+              width: 100%;
+              text-align: center;
             }
           }
           @media (max-width: 991px) {
@@ -550,7 +602,7 @@ export default Post
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqBCResource({
+    const response = await postPageInitialPropsTqWcResource({
       ...context?.params,
     })
     if (!response) {

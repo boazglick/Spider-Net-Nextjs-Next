@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 
@@ -13,6 +13,7 @@ import Footer from '../components/footer'
 import homePageResource from '../resources/home-page'
 
 const HomePage = (props) => {
+  useEffect(() => import('@lottiefiles/lottie-player'), [])
   return (
     <>
       <div className="home-page-container">
@@ -156,9 +157,25 @@ const HomePage = (props) => {
                                   <>
                                     <img
                                       alt="image"
-                                      src={context_lcvnvf?.source_url}
+                                      src={
+                                        context_lcvnvf?.source_url ||
+                                        'https://images.unsplash.com/photo-1506112573664-1a1b66d93ff3?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDR8fHZpZXd8ZW58MHx8fHwxNzA5NDA1MjI2fDA&ixlib=rb-4.0.3&h=300'
+                                      }
                                       className="home-page-image2"
                                     />
+                                  </>
+                                )}
+                                renderLoading={() => (
+                                  <>
+                                    <div className="home-page-div">
+                                      <lottie-player
+                                        src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                                        autoplay="true"
+                                        speed="1"
+                                        background="transparent"
+                                        loop="true"
+                                      ></lottie-player>
+                                    </div>
                                   </>
                                 )}
                                 params={{
@@ -167,7 +184,7 @@ const HomePage = (props) => {
                               />
                             </div>
                             <span className="home-page-text3">
-                              {context_y2hhze?.title?.rendered}
+                              {context_y2hhze?.title?.rendered || ' '}
                             </span>
                             <div
                               id="cont13b5"
@@ -196,6 +213,18 @@ const HomePage = (props) => {
                     </>
                   )}
                 />
+              </>
+            )}
+            renderLoading={() => (
+              <>
+                <div className="home-page-div1">
+                  <lottie-player
+                    src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                    autoplay="true"
+                    speed="1"
+                    background="transparent"
+                  ></lottie-player>
+                </div>
               </>
             )}
             initialData={props.contextY2hhzeProp}
@@ -458,6 +487,10 @@ const HomePage = (props) => {
             border-radius: 20px;
             margin-bottom: var(--dl-space-space-unit);
           }
+          .home-page-div {
+            width: 155px;
+            height: 76px;
+          }
           .home-page-text3 {
             width: 100%;
             height: 60px;
@@ -487,6 +520,10 @@ const HomePage = (props) => {
             display: flex;
             align-items: flex-start;
             flex-direction: column;
+          }
+          .home-page-div1 {
+            width: 155px;
+            height: 76px;
           }
           @media (max-width: 1200px) {
             .home-page-grid {

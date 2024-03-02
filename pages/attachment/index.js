@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqRqResource from '../../resources/attachment-page-initial-props-tq_rq'
+import attachmentPageInitialPropsTqOResource from '../../resources/attachment-page-initial-props-tq__o'
 
 const Attachment1 = (props) => {
   return (
@@ -25,7 +25,9 @@ const Attachment1 = (props) => {
                 renderItem={(AttachmentEntities) => (
                   <>
                     <div className="attachment1-container1">
-                      <h1>{AttachmentEntities?.title?.rendered}</h1>
+                      <h1 className="attachment1-text">
+                        {AttachmentEntities?.title?.rendered}
+                      </h1>
                     </div>
                   </>
                 )}
@@ -43,6 +45,7 @@ const Attachment1 = (props) => {
             width: 100%;
             display: flex;
             overflow: auto;
+            direction: rtl;
             min-height: 100vh;
             align-items: center;
             flex-direction: column;
@@ -53,6 +56,16 @@ const Attachment1 = (props) => {
             display: flex;
             align-items: center;
             flex-direction: column;
+          }
+          .attachment1-text {
+            margin: var(--dl-space-space-halfunit);
+            padding: var(--dl-space-space-unit);
+          }
+          @media (max-width: 1200px) {
+            .attachment1-text {
+              margin: var(--dl-space-space-halfunit);
+              padding: var(--dl-space-space-unit);
+            }
           }
         `}
       </style>
@@ -72,7 +85,7 @@ export default Attachment1
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqRqResource({
+    const response = await attachmentPageInitialPropsTqOResource({
       ...context?.params,
     })
     if (!response) {

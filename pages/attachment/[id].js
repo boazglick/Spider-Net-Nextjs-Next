@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqVHResource from '../../resources/attachment-page-initial-props-tq_v-h'
-import attachmentPageInitialPathsTqIwResource from '../../resources/attachment-page-initial-paths-tq_iw'
+import attachmentPageInitialPropsTqZcResource from '../../resources/attachment-page-initial-props-tq_zc'
+import attachmentPageInitialPathsTqBhResource from '../../resources/attachment-page-initial-paths-tq_bh'
 
 const Attachment = (props) => {
   return (
@@ -22,7 +22,9 @@ const Attachment = (props) => {
           renderSuccess={(AttachmentEntity) => (
             <>
               <div className="attachment-container1">
-                <h1>{AttachmentEntity?.title?.rendered}</h1>
+                <h1 className="attachment-text">
+                  {AttachmentEntity?.title?.rendered}
+                </h1>
               </div>
             </>
           )}
@@ -37,6 +39,7 @@ const Attachment = (props) => {
             width: 100%;
             display: flex;
             overflow: auto;
+            direction: rtl;
             min-height: 100vh;
             align-items: center;
             flex-direction: column;
@@ -46,6 +49,16 @@ const Attachment = (props) => {
             width: 100%;
             display: flex;
             flex-direction: column;
+          }
+          .attachment-text {
+            margin: var(--dl-space-space-halfunit);
+            padding: var(--dl-space-space-unit);
+          }
+          @media (max-width: 1200px) {
+            .attachment-text {
+              padding: var(--dl-space-space-halfunit);
+              text-align: center;
+            }
           }
         `}
       </style>
@@ -65,7 +78,7 @@ export default Attachment
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqVHResource({
+    const response = await attachmentPageInitialPropsTqZcResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -89,7 +102,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await attachmentPageInitialPathsTqIwResource({})
+    const response = await attachmentPageInitialPathsTqBhResource({})
     return {
       paths: (response || []).map((item) => {
         return {

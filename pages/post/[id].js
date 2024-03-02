@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 
@@ -11,10 +11,11 @@ import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTqDAResource from '../../resources/post-page-initial-props-tq_d-a'
-import postPageInitialPathsTqXZResource from '../../resources/post-page-initial-paths-tq_x-z'
+import postPageInitialPropsTqVOResource from '../../resources/post-page-initial-props-tq_v-o'
+import postPageInitialPathsTqKcResource from '../../resources/post-page-initial-paths-tq_kc'
 
 const Post11 = (props) => {
+  useEffect(() => import('@lottiefiles/lottie-player'), [])
   return (
     <>
       <div className="post11-container">
@@ -152,11 +153,35 @@ const Post11 = (props) => {
                           </div>
                         </div>
                         <img
-                          src={context_krhml4?.source_url}
+                          src={
+                            context_krhml4?.source_url ||
+                            'https://images.unsplash.com/photo-1506112573664-1a1b66d93ff3?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDR8fHZpZXd8ZW58MHx8fHwxNzA5NDA1MjI2fDA&ixlib=rb-4.0.3&h=300'
+                          }
                           alt="image"
                           className="post11-image1"
                         />
                       </div>
+                    </>
+                  )}
+                  renderLoading={() => (
+                    <>
+                      <div className="post11-div">
+                        <lottie-player
+                          src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                          autoplay="true"
+                          speed="1"
+                          background="transparent"
+                          loop="true"
+                        ></lottie-player>
+                      </div>
+                      <span className="post11-loading1">טוען נתונים ...</span>
+                    </>
+                  )}
+                  renderError={() => (
+                    <>
+                      <span className="post11-error1">
+                        אירעה שגיאה בטעינת הנתונים
+                      </span>
                     </>
                   )}
                   params={{
@@ -165,10 +190,10 @@ const Post11 = (props) => {
                 />
               </div>
               <div className="post11-post-content">
-                <h1>{PostEntity?.title?.rendered}</h1>
+                <h1>{PostEntity?.title?.rendered || ' '}</h1>
                 <div className="post11-container5">
                   <Script
-                    html={PostEntity?.content?.rendered}
+                    html={PostEntity?.content?.rendered || ' '}
                     className="post11-html-node"
                   ></Script>
                 </div>
@@ -446,6 +471,18 @@ const Post11 = (props) => {
             height: 250px;
             object-fit: cover;
           }
+          .post11-error1 {
+            padding: 8px;
+          }
+          .post11-div {
+            width: 100%;
+            height: 76px;
+          }
+          .post11-loading1 {
+            width: 100%;
+            padding: 8px;
+            text-align: center;
+          }
           .post11-post-content {
             gap: 12px;
             width: 75%;
@@ -473,6 +510,10 @@ const Post11 = (props) => {
           @media (max-width: 1200px) {
             .post11-text2 {
               font-size: 3em;
+            }
+            .post11-error1 {
+              width: 100%;
+              text-align: center;
             }
             .post11-post-content {
               width: 85%;
@@ -602,7 +643,7 @@ export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqDAResource({
+    const response = await postPageInitialPropsTqVOResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -626,7 +667,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqXZResource({})
+    const response = await postPageInitialPathsTqKcResource({})
     return {
       paths: (response || []).map((item) => {
         return {
