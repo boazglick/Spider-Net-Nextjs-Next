@@ -5,8 +5,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import pagePageInitialPropsTq9tResource from '../../resources/page-page-initial-props-tq_9t'
-import pagePageInitialPathsTqP2Resource from '../../resources/page-page-initial-paths-tq_p2'
+import pagePageInitialPropsTq7Resource from '../../resources/page-page-initial-props-tq_7-'
+import pagePageInitialPathsTqT0Resource from '../../resources/page-page-initial-paths-tq_t0'
 
 const Page = (props) => {
   return (
@@ -74,7 +74,7 @@ export default Page
 
 export async function getStaticProps(context) {
   try {
-    const response = await pagePageInitialPropsTq9tResource({
+    const response = await pagePageInitialPropsTq7Resource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -98,7 +98,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await pagePageInitialPathsTqP2Resource({})
+    const response = await pagePageInitialPathsTqT0Resource({})
     return {
       paths: (response || []).map((item) => {
         return {

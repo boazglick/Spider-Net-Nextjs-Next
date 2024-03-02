@@ -10,8 +10,8 @@ import {
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqHaResource from '../../resources/post-page-initial-props-tq_ha'
-import postPageInitialPathsTqXCResource from '../../resources/post-page-initial-paths-tq_x-c'
+import postPageInitialPropsTqWAResource from '../../resources/post-page-initial-props-tq_w-a'
+import postPageInitialPathsTqJmResource from '../../resources/post-page-initial-paths-tq_jm'
 
 const Post = (props) => {
   useEffect(() => import('@lottiefiles/lottie-player'), [])
@@ -110,7 +110,7 @@ const Post = (props) => {
                 <DataProvider
                   fetchData={(params) =>
                     fetch(
-                      `/api/attachment3-resource-attachment3?${new URLSearchParams(
+                      `/api/attachment2-resource-attachment2?${new URLSearchParams(
                         params
                       )}`,
                       {
@@ -175,9 +175,7 @@ const Post = (props) => {
                   </span>
                 </div>
                 <div className="post-container4">
-                  <React.Fragment>
-                    PostEntity?.content?.rendered || " "
-                  </React.Fragment>
+                  <React.Fragment>PostEntity?.content?.rendered</React.Fragment>
                 </div>
               </div>
             </>
@@ -491,13 +489,9 @@ const Post = (props) => {
             font-weight: 700;
           }
           .post-container4 {
-            width: 100%;
-            align-self: stretch;
             line-height: 2;
           }
           .post-html-node {
-            width: 100%;
-            align-self: stretch;
             line-height: 2;
           }
           .post-footer {
@@ -706,7 +700,7 @@ export default Post
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqHaResource({
+    const response = await postPageInitialPropsTqWAResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -730,7 +724,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqXCResource({})
+    const response = await postPageInitialPathsTqJmResource({})
     return {
       paths: (response || []).map((item) => {
         return {

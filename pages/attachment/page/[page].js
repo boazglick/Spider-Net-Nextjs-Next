@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqOResource from '../../../resources/attachment-page-initial-props-tq_-o'
-import attachmentPageInitialPathsTqVbResource from '../../../resources/attachment-page-initial-paths-tq_vb'
+import attachmentPageInitialPropsTqJmResource from '../../../resources/attachment-page-initial-props-tq_jm'
+import attachmentPageInitialPathsTqVxResource from '../../../resources/attachment-page-initial-paths-tq_vx'
 
 const Attachment1 = (props) => {
   return (
@@ -14,6 +14,7 @@ const Attachment1 = (props) => {
         <Head>
           <title>Attachment - Spider Net Nextjs</title>
           <meta property="og:title" content="Attachment - Spider Net Nextjs" />
+          <meta name="robots" content="noindex" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
@@ -70,7 +71,7 @@ export default Attachment1
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqOResource({
+    const response = await attachmentPageInitialPropsTqJmResource({
       ...context?.params,
     })
     if (!response) {
@@ -94,7 +95,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await attachmentPageInitialPathsTqVbResource({})
+    const response = await attachmentPageInitialPathsTqVxResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)

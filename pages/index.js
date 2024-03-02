@@ -131,7 +131,7 @@ const HomePage = (props) => {
                               <DataProvider
                                 fetchData={(params) =>
                                   fetch(
-                                    `/api/attachment-resource-attachment?${new URLSearchParams(
+                                    `/api/attachment1-resource-attachment1?${new URLSearchParams(
                                       params
                                     )}`,
                                     {
@@ -182,9 +182,9 @@ const HomePage = (props) => {
                                 ></DateTimePrimitive>
                               </span>
                             </div>
-                            <div>
+                            <div className="home-page-container4">
                               <React.Fragment>
-                                PostlistHome?.excerpt?.rendered || " "
+                                PostlistHome?.excerpt?.rendered
                               </React.Fragment>
                             </div>
                           </div>
@@ -238,16 +238,16 @@ const HomePage = (props) => {
                     <lottie-player
                       src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
                       loop="true"
+                      delay="300ms"
                       speed="1"
+                      easing="ease"
                       autoplay="true"
+                      duration="500ms"
+                      animation="fadeIn"
+                      direction="normal"
+                      iteration="1"
                       background="transparent"
                       data-thq-animate-on-reveal="true"
-                      animation="fadeIn"
-                      duration="500ms"
-                      delay="300ms"
-                      direction="normal"
-                      easing="ease"
-                      iteration="1"
                     ></lottie-player>
                   </div>
                 </animate-on-reveal>
@@ -578,6 +578,12 @@ const HomePage = (props) => {
           .home-page-date-time {
             font-family: 'Exo 2';
             font-weight: 600;
+          }
+          .home-page-container4 {
+            line-height: 1.5;
+          }
+          .home-page-html-node {
+            line-height: 1.5;
           }
           .home-page-text05 {
             width: 100%;

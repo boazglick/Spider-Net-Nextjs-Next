@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqVeResource from '../../../resources/post-page-initial-props-tq_ve'
-import postPageInitialPathsTqSqResource from '../../../resources/post-page-initial-paths-tq_sq'
+import postPageInitialPropsTq5nResource from '../../../resources/post-page-initial-props-tq_5n'
+import postPageInitialPathsTq8xResource from '../../../resources/post-page-initial-paths-tq_8x'
 
 const Post11 = (props) => {
   return (
@@ -14,6 +14,7 @@ const Post11 = (props) => {
         <Head>
           <title>Post1 - Spider Net Nextjs</title>
           <meta property="og:title" content="Post1 - Spider Net Nextjs" />
+          <meta name="robots" content="noindex" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
@@ -70,7 +71,7 @@ export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqVeResource({
+    const response = await postPageInitialPropsTq5nResource({
       ...context?.params,
     })
     if (!response) {
@@ -94,7 +95,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqSqResource({})
+    const response = await postPageInitialPathsTq8xResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)

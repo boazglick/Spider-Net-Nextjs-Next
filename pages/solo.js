@@ -107,13 +107,14 @@ const Solo = (props) => {
               <div className="solo-top-title">
                 <span className="solo-text2">
                   {context_qudwz?.title?.rendered}
+                  {[0]?.title?.rendered}
                 </span>
               </div>
               <div className="solo-image-style">
                 <DataProvider
                   fetchData={(params) =>
                     fetch(
-                      `/api/attachment1-resource-attachment1?${new URLSearchParams(
+                      `/api/attachment-resource-attachment?${new URLSearchParams(
                         params
                       )}`,
                       {
@@ -160,7 +161,10 @@ const Solo = (props) => {
                 />
               </div>
               <div className="solo-content-style">
-                <h1 className="solo-text3">{context_qudwz?.title?.rendered}</h1>
+                <h1 className="solo-text3">
+                  {context_qudwz?.title?.rendered}
+                  {[0]?.title?.rendered}
+                </h1>
                 <div className="solo-date-style">
                   <span className="solo-text4">פורסם בתאריך:</span>
                   <span className="solo-date-time">
@@ -482,13 +486,9 @@ const Solo = (props) => {
             font-weight: 700;
           }
           .solo-container4 {
-            width: 100%;
-            align-self: stretch;
             line-height: 2;
           }
           .solo-html-node {
-            width: 100%;
-            align-self: stretch;
             line-height: 2;
           }
           .solo-footer {

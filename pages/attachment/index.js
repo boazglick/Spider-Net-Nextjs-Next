@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqDaResource from '../../resources/attachment-page-initial-props-tq_da'
+import attachmentPageInitialPropsTqLEResource from '../../resources/attachment-page-initial-props-tq_l-e'
 
 const Attachment = (props) => {
   return (
@@ -13,6 +13,7 @@ const Attachment = (props) => {
         <Head>
           <title>Attachment - Spider Net Nextjs</title>
           <meta property="og:title" content="Attachment - Spider Net Nextjs" />
+          <meta name="robots" content="noindex" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
@@ -69,7 +70,7 @@ export default Attachment
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqDaResource({
+    const response = await attachmentPageInitialPropsTqLEResource({
       ...context?.params,
     })
     if (!response) {

@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import pagePageInitialPropsTqYtResource from '../../resources/page-page-initial-props-tq_yt'
+import pagePageInitialPropsTqOQResource from '../../resources/page-page-initial-props-tq_o-q'
 
 const Page1 = (props) => {
   return (
@@ -13,6 +13,7 @@ const Page1 = (props) => {
         <Head>
           <title>Page1 - Spider Net Nextjs</title>
           <meta property="og:title" content="Page1 - Spider Net Nextjs" />
+          <meta name="robots" content="noindex" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
@@ -69,7 +70,7 @@ export default Page1
 
 export async function getStaticProps(context) {
   try {
-    const response = await pagePageInitialPropsTqYtResource({
+    const response = await pagePageInitialPropsTqOQResource({
       ...context?.params,
     })
     if (!response) {
