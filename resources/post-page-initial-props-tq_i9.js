@@ -2,10 +2,13 @@ import { normalize } from '@teleporthq/cms-mappers/wordpress'
 
 export default async function (params = {}) {
   const urlParams = {
-    per_page: '10',
+    per_page: '50',
+    ...(params['id'] && {
+      include: params['id'],
+    }),
   }
   const data = await fetch(
-    `${process.env.CMS_URL}/wp-json/wp/v2/media?${new URLSearchParams(
+    `${process.env.CMS_URL}/wp-json/wp/v2/posts?${new URLSearchParams(
       urlParams
     )}`,
     {

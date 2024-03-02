@@ -2,6 +2,9 @@ import { normalize } from '@teleporthq/cms-mappers/wordpress'
 
 export default async function (params = {}) {
   const urlParams = {
+    ...(params['page'] && {
+      page: params['page'],
+    }),
     per_page: '10',
   }
   const data = await fetch(

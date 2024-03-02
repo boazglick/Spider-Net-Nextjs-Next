@@ -573,6 +573,9 @@ const HomePage = (props) => {
               margin-left: 0;
               margin-bottom: var(--dl-space-space-unit);
             }
+            .home-page-container3 {
+              width: 85%;
+            }
             .home-page-grid {
               grid-template-columns: repeat(1, 1fr);
             }
