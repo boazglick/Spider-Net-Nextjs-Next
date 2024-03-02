@@ -1,10 +1,11 @@
 import React from 'react'
+import Link from 'next/link'
 import Head from 'next/head'
 
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqRkResource from '../../resources/post-page-initial-props-tq_rk'
+import postPageInitialPropsTqAResource from '../../resources/post-page-initial-props-tq_a-'
 
 const Post = (props) => {
   return (
@@ -22,7 +23,13 @@ const Post = (props) => {
                 renderItem={(PostEntities) => (
                   <>
                     <div className="post-container1">
-                      <h1>{PostEntities?.title?.rendered}</h1>
+                      <Link href={`/post/${PostEntities?.id}`}>
+                        <a className="post-link">
+                          <h1 className="post-text">
+                            {PostEntities?.title?.rendered}
+                          </h1>
+                        </a>
+                      </Link>
                     </div>
                   </>
                 )}
@@ -51,6 +58,13 @@ const Post = (props) => {
             align-items: center;
             flex-direction: column;
           }
+          .post-link {
+            display: contents;
+          }
+          .post-text {
+            margin: var(--dl-space-space-unit);
+            text-decoration: none;
+          }
         `}
       </style>
     </>
@@ -69,7 +83,7 @@ export default Post
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqRkResource({
+    const response = await postPageInitialPropsTqAResource({
       ...context?.params,
     })
     if (!response) {

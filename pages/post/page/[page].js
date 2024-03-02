@@ -1,11 +1,12 @@
 import React from 'react'
+import Link from 'next/link'
 import Head from 'next/head'
 
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqLResource from '../../../resources/post-page-initial-props-tq__l'
-import postPageInitialPathsTqBVResource from '../../../resources/post-page-initial-paths-tq_b-v'
+import postPageInitialPropsTqO7Resource from '../../../resources/post-page-initial-props-tq_o7'
+import postPageInitialPathsTqWuResource from '../../../resources/post-page-initial-paths-tq_wu'
 
 const Post1 = (props) => {
   return (
@@ -23,7 +24,13 @@ const Post1 = (props) => {
                 renderItem={(PostEntities) => (
                   <>
                     <div className="post1-container1">
-                      <h1>{PostEntities?.title?.rendered}</h1>
+                      <Link href={`/post/${PostEntities?.id}`}>
+                        <a className="post1-link">
+                          <h1 className="post1-text">
+                            {PostEntities?.title?.rendered}
+                          </h1>
+                        </a>
+                      </Link>
                     </div>
                   </>
                 )}
@@ -52,6 +59,13 @@ const Post1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
+          .post1-link {
+            display: contents;
+          }
+          .post1-text {
+            margin: var(--dl-space-space-unit);
+            text-decoration: none;
+          }
         `}
       </style>
     </>
@@ -70,7 +84,7 @@ export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqLResource({
+    const response = await postPageInitialPropsTqO7Resource({
       ...context?.params,
     })
     if (!response) {
@@ -94,7 +108,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqBVResource({})
+    const response = await postPageInitialPathsTqWuResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)
