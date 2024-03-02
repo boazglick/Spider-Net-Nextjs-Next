@@ -516,14 +516,18 @@ const Contact = (props) => {
             .contact-image {
               height: 3.5rem;
             }
+            .contact-icon04 {
+              width: 30px;
+              height: 30px;
+            }
             .contact-mobile-menu {
               padding: 16px;
               background-color: #111111;
             }
             .contact-icon06 {
               fill: var(--dl-color-gray-white);
-              width: var(--dl-size-size-small);
-              height: var(--dl-size-size-small);
+              width: 30px;
+              height: 30px;
             }
             .contact-link4 {
               color: var(--dl-color-gray-white);

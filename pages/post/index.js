@@ -6,7 +6,7 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTq6Resource from '../../resources/post-page-initial-props-tq_-6'
+import postPageInitialPropsTqYhResource from '../../resources/post-page-initial-props-tq_yh'
 
 const Post = (props) => {
   return (
@@ -498,7 +498,7 @@ export default Post
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTq6Resource({
+    const response = await postPageInitialPropsTqYhResource({
       ...context?.params,
     })
     if (!response) {

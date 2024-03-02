@@ -381,7 +381,7 @@ const Home = (props) => {
             display: contents;
           }
           .home-logo {
-            height: 2rem;
+            height: 3rem;
             text-decoration: none;
           }
           .home-close-menu {
@@ -390,8 +390,8 @@ const Home = (props) => {
             justify-content: center;
           }
           .home-icon06 {
-            width: var(--dl-size-size-xsmall);
-            height: var(--dl-size-size-xsmall);
+            width: 30px;
+            height: 30px;
           }
           .home-links1 {
             flex: 0 0 auto;
@@ -616,8 +616,11 @@ const Home = (props) => {
               justify-content: center;
             }
             .home-icon04 {
-              width: var(--dl-size-size-small);
-              height: var(--dl-size-size-small);
+              width: 30px;
+              height: 30px;
+            }
+            .home-logo {
+              height: 3.5rem;
             }
             .home-link4 {
               margin-bottom: var(--dl-space-space-unit);
@@ -655,8 +658,8 @@ const Home = (props) => {
               height: 3.5rem;
             }
             .home-icon06 {
-              width: var(--dl-size-size-small);
-              height: var(--dl-size-size-small);
+              width: 30px;
+              height: 30px;
             }
             .home-text2 {
               font-size: 3em;

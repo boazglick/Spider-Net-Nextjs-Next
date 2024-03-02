@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqQlResource from '../../resources/attachment-page-initial-props-tq_ql'
-import attachmentPageInitialPathsTqDMResource from '../../resources/attachment-page-initial-paths-tq_d-m'
+import attachmentPageInitialPropsTq3hResource from '../../resources/attachment-page-initial-props-tq_3h'
+import attachmentPageInitialPathsTqHrResource from '../../resources/attachment-page-initial-paths-tq_hr'
 
 const Attachment = (props) => {
   return (
@@ -34,6 +34,7 @@ const Attachment = (props) => {
             width: 100%;
             display: flex;
             overflow: auto;
+            direction: rtl;
             min-height: 100vh;
             align-items: center;
             flex-direction: column;
@@ -62,7 +63,7 @@ export default Attachment
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqQlResource({
+    const response = await attachmentPageInitialPropsTq3hResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -86,7 +87,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await attachmentPageInitialPathsTqDMResource({})
+    const response = await attachmentPageInitialPathsTqHrResource({})
     return {
       paths: (response || []).map((item) => {
         return {
