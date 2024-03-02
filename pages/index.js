@@ -111,7 +111,7 @@ const Home = (props) => {
                   items={params}
                   renderItem={(PostlistHome) => (
                     <>
-                      <Link href={`/post/${PostlistHome?.id}`}>
+                      <Link href={`/post/${PostlistHome?.slug}`}>
                         <a>
                           <div className="home-product-minitura">
                             <div className="home-image1">

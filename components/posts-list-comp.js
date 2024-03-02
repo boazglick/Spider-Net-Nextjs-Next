@@ -23,7 +23,7 @@ const PostsListComp = (props) => {
                 items={params}
                 renderItem={(Posts_List) => (
                   <>
-                    <Link href={`/post/${Posts_List?.id}`}>
+                    <Link href={`/post/${Posts_List?.slug}`}>
                       <a>
                         <div className="posts-list-comp-product-minitura">
                           <div className="posts-list-comp-image">

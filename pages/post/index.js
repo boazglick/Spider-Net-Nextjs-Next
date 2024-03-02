@@ -6,7 +6,7 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqI8Resource from '../../resources/post-page-initial-props-tq_i8'
+import postPageInitialPropsTqFiResource from '../../resources/post-page-initial-props-tq_fi'
 
 const Post = (props) => {
   return (
@@ -101,7 +101,7 @@ const Post = (props) => {
                 renderItem={(PostEntities) => (
                   <>
                     <div className="post-container3">
-                      <Link href={`/post/${PostEntities?.id}`}>
+                      <Link href={`/post/${PostEntities?.slug}`}>
                         <a className="post-link6">
                           <h1 className="post-text2">
                             {PostEntities?.title?.rendered}
@@ -499,7 +499,7 @@ export default Post
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqI8Resource({
+    const response = await postPageInitialPropsTqFiResource({
       ...context?.params,
     })
     if (!response) {

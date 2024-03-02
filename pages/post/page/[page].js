@@ -6,8 +6,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTq1eResource from '../../../resources/post-page-initial-props-tq_1e'
-import postPageInitialPathsTqGuResource from '../../../resources/post-page-initial-paths-tq_gu'
+import postPageInitialPropsTqM5Resource from '../../../resources/post-page-initial-props-tq_m5'
+import postPageInitialPathsTqBpResource from '../../../resources/post-page-initial-paths-tq_bp'
 
 const Post1 = (props) => {
   return (
@@ -111,7 +111,7 @@ const Post1 = (props) => {
                 renderItem={(PostEntities) => (
                   <>
                     <div className="post1-container3">
-                      <Link href={`/post/${PostEntities?.id}`}>
+                      <Link href={`/post/${PostEntities?.slug}`}>
                         <a className="post1-link6">
                           <h1 className="post1-text2">
                             {PostEntities?.title?.rendered}
@@ -509,7 +509,7 @@ export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTq1eResource({
+    const response = await postPageInitialPropsTqM5Resource({
       ...context?.params,
     })
     if (!response) {
@@ -533,7 +533,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqGuResource({})
+    const response = await postPageInitialPathsTqBpResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)
