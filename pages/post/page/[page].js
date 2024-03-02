@@ -6,8 +6,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqWoResource from '../../../resources/post-page-initial-props-tq_wo'
-import postPageInitialPathsTqRtResource from '../../../resources/post-page-initial-paths-tq_rt'
+import postPageInitialPropsTqMcResource from '../../../resources/post-page-initial-props-tq_mc'
+import postPageInitialPathsTqZeResource from '../../../resources/post-page-initial-paths-tq_ze'
 
 const Post1 = (props) => {
   return (
@@ -508,7 +508,7 @@ export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqWoResource({
+    const response = await postPageInitialPropsTqMcResource({
       ...context?.params,
     })
     if (!response) {
@@ -532,7 +532,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqRtResource({})
+    const response = await postPageInitialPathsTqZeResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)

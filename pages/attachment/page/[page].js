@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqYaResource from '../../../resources/attachment-page-initial-props-tq_ya'
-import attachmentPageInitialPathsTqW3Resource from '../../../resources/attachment-page-initial-paths-tq_w3'
+import attachmentPageInitialPropsTqQuResource from '../../../resources/attachment-page-initial-props-tq_qu'
+import attachmentPageInitialPathsTqZhResource from '../../../resources/attachment-page-initial-paths-tq_zh'
 
 const Attachment11 = (props) => {
   return (
@@ -81,7 +81,7 @@ export default Attachment11
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqYaResource({
+    const response = await attachmentPageInitialPropsTqQuResource({
       ...context?.params,
     })
     if (!response) {
@@ -105,7 +105,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await attachmentPageInitialPathsTqW3Resource({})
+    const response = await attachmentPageInitialPathsTqZhResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)
