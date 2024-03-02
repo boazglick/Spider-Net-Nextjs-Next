@@ -1,4 +1,4 @@
-import { revalidate } from '@teleporthq/cms-mappers/wordpress/revalidate'
+import { revalidate } from '@teleporthq/cms-mappers/strapi/revalidate'
 
 export default async function handler(req, res) {
   try {
@@ -9,20 +9,40 @@ export default async function handler(req, res) {
     }
     await revalidate(req, async (data, contentType) => {
       switch (contentType) {
-        case 'post': {
+        case 'api::author.author': {
           try {
-            await res.revalidate(`/post`)
-            await res.revalidate(`/post/${data.id}`)
+            await res.revalidate(`/authors`)
+            await res.revalidate(`/authors/${data.id}`)
           } catch (error) {
             console.log('Failed in clearing cache')
             console.log(error)
           }
           break
         }
-        case 'attachment': {
+        case 'api::lead.lead': {
           try {
-            await res.revalidate(`/attachment`)
-            await res.revalidate(`/attachment/${data.id}`)
+            await res.revalidate(`/leads`)
+            await res.revalidate(`/leads/${data.id}`)
+          } catch (error) {
+            console.log('Failed in clearing cache')
+            console.log(error)
+          }
+          break
+        }
+        case 'api::post.post': {
+          try {
+            await res.revalidate(`/posts`)
+            await res.revalidate(`/posts/${data.id}`)
+          } catch (error) {
+            console.log('Failed in clearing cache')
+            console.log(error)
+          }
+          break
+        }
+        case 'api::tag.tag': {
+          try {
+            await res.revalidate(`/tags`)
+            await res.revalidate(`/tags/${data.id}`)
           } catch (error) {
             console.log('Failed in clearing cache')
             console.log(error)

@@ -18,7 +18,7 @@
     "@teleporthq/cms-mappers": "latest",
     "@teleporthq/react-components": "latest",
     "prop-types": "15.7.2",
-    "dangerous-html": "0.1.13"
+    "react-markdown": "8.0.7"
   },
   "engines": {
     "node": ">=18.x"

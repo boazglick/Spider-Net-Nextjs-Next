@@ -346,24 +346,24 @@ const NavbarInteractive1 = (props) => {
 }
 
 NavbarInteractive1.defaultProps = {
-  logoSrc: '8ff87394-9c44-45be-a984-e69c1b59aac1',
-  logoAlt: 'image',
-  text: 'דף הבית',
-  text1: 'צור קשר',
-  imageAlt: 'logo',
   text3: 'צור קשר\n',
+  imageAlt: 'logo',
+  text: 'דף הבית',
+  logoAlt: 'image',
+  text1: 'צור קשר',
   imageSrc: '8ff87394-9c44-45be-a984-e69c1b59aac1',
+  logoSrc: '8ff87394-9c44-45be-a984-e69c1b59aac1',
   text2: 'דף הבית',
 }
 
 NavbarInteractive1.propTypes = {
-  logoSrc: PropTypes.string,
-  logoAlt: PropTypes.string,
-  text: PropTypes.string,
-  text1: PropTypes.string,
-  imageAlt: PropTypes.string,
   text3: PropTypes.string,
+  imageAlt: PropTypes.string,
+  text: PropTypes.string,
+  logoAlt: PropTypes.string,
+  text1: PropTypes.string,
   imageSrc: PropTypes.string,
+  logoSrc: PropTypes.string,
   text2: PropTypes.string,
 }
 
