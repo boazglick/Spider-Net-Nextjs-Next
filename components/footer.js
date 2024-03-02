@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 const Footer = (props) => {
   return (
     <>
-      <footer className="footer-footer">
+      <footer className={`footer-footer ${props.rootClassName} `}>
         <Link href="/">
           <a className="footer-link">
             <img
@@ -62,6 +62,7 @@ const Footer = (props) => {
             display: contents;
           }
           .footer-image {
+            cursor: pointer;
             height: 3rem;
             object-fit: cover;
             text-decoration: none;
@@ -113,6 +114,7 @@ const Footer = (props) => {
             height: var(--dl-size-size-xsmall);
             margin-left: var(--dl-space-space-unit);
           }
+
           @media (max-width: 767px) {
             .footer-footer {
               padding-left: var(--dl-space-space-twounits);
@@ -166,6 +168,7 @@ Footer.defaultProps = {
   linkText: 'https://011.ninja',
   text2: 'Code design by 011.ninja',
   text1: '©  SpiderNet, All Rights Reserved. ',
+  rootClassName: '',
 }
 
 Footer.propTypes = {
@@ -175,6 +178,7 @@ Footer.propTypes = {
   linkText: PropTypes.string,
   text2: PropTypes.string,
   text1: PropTypes.string,
+  rootClassName: PropTypes.string,
 }
 
 export default Footer

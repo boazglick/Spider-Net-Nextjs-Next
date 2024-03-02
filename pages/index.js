@@ -2,6 +2,16 @@ import React from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 
+import {
+  DataProvider,
+  Repeater,
+  DateTimePrimitive,
+} from '@teleporthq/react-components'
+import Script from 'dangerous-html/react'
+
+import Footer from '../components/footer'
+import homePageResource from '../resources/home-page'
+
 const HomePage = (props) => {
   return (
     <>
@@ -15,11 +25,19 @@ const HomePage = (props) => {
           />
         </Head>
         <header data-thq="thq-navbar" className="home-page-navbar-interactive">
-          <img alt="logo" src="/path15-1500h.png" className="home-page-image" />
+          <Link href="/">
+            <a className="home-page-link">
+              <img
+                alt="logo"
+                src="/path15-1500h.png"
+                className="home-page-image"
+              />
+            </a>
+          </Link>
           <div data-thq="thq-navbar-nav" className="home-page-desktop-menu">
             <nav className="home-page-links">
               <Link href="/">
-                <a className="home-page-link">
+                <a className="home-page-link1">
                   <div className="home-page-container1">
                     <svg viewBox="0 0 1024 1024" className="home-page-icon">
                       <path d="M512 128l342 256v512h-214v-298h-256v298h-214v-512z"></path>
@@ -29,7 +47,7 @@ const HomePage = (props) => {
                 </a>
               </Link>
               <Link href="/">
-                <a className="home-page-link1">
+                <a className="home-page-link2">
                   <div className="home-page-container2">
                     <svg viewBox="0 0 1024 1024" className="home-page-icon02">
                       <path d="M128 337.963l359.552 251.691c14.507 10.027 33.92 10.496 48.939 0l359.509-251.691v430.037c0 11.605-4.693 22.229-12.587 30.080s-18.475 12.587-30.080 12.587h-682.667c-11.605 0-22.229-4.693-30.080-12.587s-12.587-18.475-12.587-30.080zM42.667 256.512v511.488c0 35.328 14.507 67.371 37.547 90.453s55.125 37.547 90.453 37.547h682.667c35.328 0 67.371-14.507 90.453-37.547s37.547-55.125 37.547-90.453v-511.488c0-0.427 0-0.853 0-1.28-0.213-35.029-14.635-66.773-37.547-89.685-23.083-23.040-55.125-37.547-90.453-37.547h-682.667c-35.328 0-67.371 14.507-90.453 37.547-22.912 22.912-37.333 54.656-37.547 89.728 0 0.213 0 0.469 0 0.725zM891.477 236.971l-379.477 265.6-379.477-265.6c2.048-4.096 4.779-7.808 8.021-11.051 7.893-7.893 18.517-12.587 30.123-12.587h682.667c11.605 0 22.229 4.693 30.080 12.587 3.243 3.243 5.973 6.997 8.021 11.051z"></path>
@@ -49,7 +67,7 @@ const HomePage = (props) => {
             <div className="home-page-nav">
               <div className="home-page-top">
                 <Link href="/">
-                  <a className="home-page-link2">
+                  <a className="home-page-link3">
                     <img
                       alt="image"
                       src="8ff87394-9c44-45be-a984-e69c1b59aac1"
@@ -65,10 +83,10 @@ const HomePage = (props) => {
               </div>
               <nav className="home-page-links1">
                 <Link href="/">
-                  <a className="home-page-link3">דף הבית</a>
+                  <a className="home-page-link4">דף הבית</a>
                 </Link>
                 <Link href="/contact">
-                  <a className="home-page-link4">צור קשר</a>
+                  <a className="home-page-link5">צור קשר</a>
                 </Link>
               </nav>
               <div className="home-page-buttons"></div>
@@ -95,6 +113,87 @@ const HomePage = (props) => {
             </div>
           </div>
         </header>
+        <div className="home-page-top-title">
+          <span className="home-page-text2">כל המאמרים</span>
+        </div>
+        <div className="home-page-grid">
+          <DataProvider
+            renderSuccess={(params) => (
+              <>
+                <Repeater
+                  items={params}
+                  renderItem={(context_y2hhze) => (
+                    <>
+                      <Link href={`/post/${context_y2hhze?.id}`}>
+                        <a>
+                          <div className="home-page-container3">
+                            <div className="home-page-image1">
+                              <DataProvider
+                                fetchData={(params) =>
+                                  fetch(
+                                    `/api/attachment-resource-attachment?${new URLSearchParams(
+                                      params
+                                    )}`,
+                                    {
+                                      headers: {
+                                        'Content-Type': 'application/json',
+                                      },
+                                    }
+                                  )
+                                    .then((res) => res.json())
+                                    .then((data) => data?.data?.[0])
+                                }
+                                renderSuccess={(context_lcvnvf) => (
+                                  <>
+                                    <img
+                                      alt="image"
+                                      src={context_lcvnvf?.source_url}
+                                      className="home-page-image2"
+                                    />
+                                  </>
+                                )}
+                                params={{
+                                  include: context_y2hhze?.featured_media,
+                                }}
+                              />
+                            </div>
+                            <span className="home-page-text3">
+                              {context_y2hhze?.title?.rendered}
+                            </span>
+                            <div
+                              id="cont13b5"
+                              className="home-page-date-and-author"
+                            >
+                              <span className="home-page-prefix">
+                                פורסם בתאריך: 
+                              </span>
+                              <span className="home-page-date-time">
+                                <DateTimePrimitive
+                                  format="DD/MM/YYYY"
+                                  date={context_y2hhze?.date}
+                                ></DateTimePrimitive>
+                              </span>
+                            </div>
+                            <div className="home-page-rich">
+                              <div>
+                                <Script
+                                  html={context_y2hhze?.excerpt?.rendered}
+                                ></Script>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </Link>
+                    </>
+                  )}
+                />
+              </>
+            )}
+            initialData={props.contextY2hhzeProp}
+            persistDataDuringLoading={true}
+          />
+        </div>
+        <Footer rootClassName="footer-root-class-name"></Footer>
       </div>
       <style jsx>
         {`
@@ -118,7 +217,11 @@ const HomePage = (props) => {
             justify-content: space-between;
             background-color: #f9f9f9;
           }
+          .home-page-link {
+            display: contents;
+          }
           .home-page-image {
+            cursor: pointer;
             height: 3rem;
             text-decoration: none;
           }
@@ -134,7 +237,7 @@ const HomePage = (props) => {
             flex-direction: row;
             justify-content: center;
           }
-          .home-page-link {
+          .home-page-link1 {
             display: contents;
           }
           .home-page-container1 {
@@ -156,7 +259,7 @@ const HomePage = (props) => {
             color: var(--dl-color-gray-black);
             font-size: 24px;
           }
-          .home-page-link1 {
+          .home-page-link2 {
             display: contents;
           }
           .home-page-container2 {
@@ -211,7 +314,7 @@ const HomePage = (props) => {
             margin-bottom: var(--dl-space-space-threeunits);
             justify-content: space-between;
           }
-          .home-page-link2 {
+          .home-page-link3 {
             display: contents;
           }
           .home-page-logo {
@@ -236,12 +339,12 @@ const HomePage = (props) => {
             align-items: flex-start;
             flex-direction: column;
           }
-          .home-page-link3 {
+          .home-page-link4 {
             color: var(--dl-color-gray-white);
             margin-bottom: var(--dl-space-space-unit);
             text-decoration: none;
           }
-          .home-page-link4 {
+          .home-page-link5 {
             color: var(--dl-color-gray-white);
             margin-bottom: var(--dl-space-space-unit);
             text-decoration: none;
@@ -272,9 +375,100 @@ const HomePage = (props) => {
             height: var(--dl-size-size-xsmall);
             margin-left: var(--dl-space-space-unit);
           }
+          .home-page-top-title {
+            flex: 0 0 auto;
+            width: 100%;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #111111;
+          }
+          .home-page-text2 {
+            color: var(--dl-color-gray-900);
+            width: auto;
+            font-size: 4em;
+            text-align: center;
+            font-weight: 900;
+          }
+          .home-page-grid {
+            flex: 0 0 auto;
+            width: 95%;
+            height: auto;
+            display: grid;
+            position: relative;
+            direction: rtl;
+            align-self: center;
+            margin-top: var(--dl-space-space-fourunits);
+            align-items: flex-start;
+            margin-bottom: var(--dl-space-space-fourunits);
+            grid-template-columns: repeat(4, 1fr);
+          }
+          .home-page-container3 {
+            flex: 0 0 auto;
+            width: auto;
+            cursor: pointer;
+            margin: var(--dl-space-space-unit);
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            text-decoration: none;
+          }
+          .home-page-image1 {
+            flex: 0 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          .home-page-image2 {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: var(--dl-space-space-unit);
+          }
+          .home-page-text3 {
+            width: 100%;
+            height: 60px;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: var(--dl-space-space-halfunit);
+          }
+          .home-page-date-and-author {
+            flex: 0 0 auto;
+            width: auto;
+            display: flex;
+            margin-bottom: var(--dl-space-space-halfunit);
+            flex-direction: row;
+          }
+          .home-page-prefix {
+            font-weight: 300;
+            margin-left: var(--dl-space-space-halfunit);
+          }
+          .home-page-date-time {
+            font-family: 'Exo 2';
+            font-weight: 700;
+          }
+          .home-page-rich {
+            flex: 0 0 auto;
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+          }
+          @media (max-width: 1200px) {
+            .home-page-grid {
+              grid-template-columns: repeat(3, 1fr);
+            }
+          }
           @media (max-width: 991px) {
             .home-page-image {
               height: 3rem;
+            }
+            .home-page-grid {
+              grid-template-columns: repeat(2, 1fr);
             }
           }
           @media (max-width: 767px) {
@@ -301,12 +495,15 @@ const HomePage = (props) => {
             .home-page-logo {
               height: 3.5rem;
             }
-            .home-page-link3 {
+            .home-page-link4 {
               margin-bottom: var(--dl-space-space-unit);
             }
-            .home-page-link4 {
+            .home-page-link5 {
               margin-left: 0;
               margin-bottom: var(--dl-space-space-unit);
+            }
+            .home-page-grid {
+              grid-template-columns: repeat(1, 1fr);
             }
           }
           @media (max-width: 479px) {
@@ -332,10 +529,10 @@ const HomePage = (props) => {
               width: 30px;
               height: 30px;
             }
-            .home-page-link3 {
+            .home-page-link4 {
               color: var(--dl-color-gray-white);
             }
-            .home-page-link4 {
+            .home-page-link5 {
               color: var(--dl-color-gray-white);
             }
             .home-page-icon08 {
@@ -355,3 +552,26 @@ const HomePage = (props) => {
 }
 
 export default HomePage
+
+export async function getStaticProps(context) {
+  try {
+    const contextY2hhzeProp = await homePageResource({
+      ...context?.params,
+    })
+    if (!contextY2hhzeProp) {
+      return {
+        notFound: true,
+      }
+    }
+    return {
+      props: {
+        contextY2hhzeProp: contextY2hhzeProp,
+      },
+      revalidate: 60,
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
+}
