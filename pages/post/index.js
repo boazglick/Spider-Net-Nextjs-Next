@@ -6,7 +6,7 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTq2yResource from '../../resources/post-page-initial-props-tq_2y'
+import postPageInitialPropsTqZSResource from '../../resources/post-page-initial-props-tq_z-s'
 
 const Post = (props) => {
   useEffect(() => import('@lottiefiles/lottie-player'), [])
@@ -424,7 +424,6 @@ const Post = (props) => {
             align-items: center;
             border-color: var(--dl-color-gray-900);
             border-width: 1px;
-            border-radius: 20px;
             flex-direction: row;
             justify-content: space-between;
             text-decoration: none;
@@ -533,6 +532,7 @@ const Post = (props) => {
             .post-container5 {
               gap: 0;
               padding: var(--dl-space-space-unit);
+              border-radius: 0px;
               justify-content: space-between;
             }
           }
@@ -606,7 +606,7 @@ export default Post
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTq2yResource({
+    const response = await postPageInitialPropsTqZSResource({
       ...context?.params,
     })
     if (!response) {

@@ -6,8 +6,8 @@ import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
 import Footer from '../../../components/footer'
-import postPageInitialPropsTqOwResource from '../../../resources/post-page-initial-props-tq_ow'
-import postPageInitialPathsTqXXResource from '../../../resources/post-page-initial-paths-tq_x-x'
+import postPageInitialPropsTqQResource from '../../../resources/post-page-initial-props-tq_q_'
+import postPageInitialPathsTqTKResource from '../../../resources/post-page-initial-paths-tq_t-k'
 
 const Post1 = (props) => {
   useEffect(() => import('@lottiefiles/lottie-player'), [])
@@ -434,7 +434,6 @@ const Post1 = (props) => {
             align-items: center;
             border-color: var(--dl-color-gray-900);
             border-width: 1px;
-            border-radius: 20px;
             flex-direction: row;
             justify-content: space-between;
             text-decoration: none;
@@ -543,6 +542,7 @@ const Post1 = (props) => {
             .post1-container5 {
               gap: 0;
               padding: var(--dl-space-space-unit);
+              border-radius: 0px;
               justify-content: space-between;
             }
           }
@@ -616,7 +616,7 @@ export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqOwResource({
+    const response = await postPageInitialPropsTqQResource({
       ...context?.params,
     })
     if (!response) {
@@ -640,7 +640,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqXXResource({})
+    const response = await postPageInitialPathsTqTKResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)
