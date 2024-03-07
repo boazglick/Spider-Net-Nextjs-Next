@@ -133,17 +133,17 @@ const HomePage = (props) => {
             </div>
           </div>
         </div>
-        <div className="home-page-grid">
-          <DataProvider
-            renderSuccess={(params) => (
-              <>
+        <DataProvider
+          renderSuccess={(params) => (
+            <>
+              <div className="home-page-container5">
                 <Repeater
                   items={params}
                   renderItem={(context_y2hhze) => (
                     <>
                       <Link href={`/post/${context_y2hhze?.slug}`}>
                         <a>
-                          <div className="home-page-container5">
+                          <div className="home-page-container6">
                             <div className="home-page-image1">
                               <DataProvider
                                 fetchData={(params) =>
@@ -268,24 +268,24 @@ figure {
                     </>
                   )}
                 />
-              </>
-            )}
-            renderLoading={() => (
-              <>
-                <div className="home-page-div1">
-                  <lottie-player
-                    src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
-                    speed="1"
-                    autoplay="true"
-                    background="transparent"
-                  ></lottie-player>
-                </div>
-              </>
-            )}
-            initialData={props.contextY2hhzeProp}
-            persistDataDuringLoading={true}
-          />
-        </div>
+              </div>
+            </>
+          )}
+          renderLoading={() => (
+            <>
+              <div className="home-page-div1">
+                <lottie-player
+                  src="https://lottie.host/c1e3a30b-9c83-46be-a838-a249c8aa863c/vZZAyBVfeU.json"
+                  speed="1"
+                  autoplay="true"
+                  background="transparent"
+                ></lottie-player>
+              </div>
+            </>
+          )}
+          initialData={props.contextY2hhzeProp}
+          persistDataDuringLoading={true}
+        />
         <Footer rootClassName="footer-root-class-name"></Footer>
       </div>
       <style jsx>
@@ -492,20 +492,15 @@ figure {
           .home-page-container4 {
             display: contents;
           }
-          .home-page-grid {
-            flex: 0 0 auto;
-            width: 95%;
+          .home-page-container5 {
+            width: 100%;
             height: auto;
             display: grid;
-            position: relative;
-            direction: rtl;
-            align-self: center;
             margin-top: var(--dl-space-space-fiveunits);
-            align-items: flex-start;
             margin-bottom: var(--dl-space-space-fiveunits);
             grid-template-columns: repeat(4, 1fr);
           }
-          .home-page-container5 {
+          .home-page-container6 {
             flex: 0 0 auto;
             width: auto;
             cursor: pointer;
@@ -582,17 +577,19 @@ figure {
             width: 155px;
             height: 76px;
           }
+          @media (max-width: 1600px) {
+            .home-page-container5 {
+              grid-template-columns: repeat(4, 1fr);
+            }
+          }
           @media (max-width: 1200px) {
-            .home-page-grid {
+            .home-page-container5 {
               grid-template-columns: repeat(3, 1fr);
             }
           }
           @media (max-width: 991px) {
             .home-page-image {
               height: 3rem;
-            }
-            .home-page-grid {
-              grid-template-columns: repeat(2, 1fr);
             }
           }
           @media (max-width: 767px) {
@@ -630,8 +627,8 @@ figure {
               margin-left: 0;
               margin-bottom: var(--dl-space-space-unit);
             }
-            .home-page-grid {
-              grid-template-columns: repeat(1, 1fr);
+            .home-page-container5 {
+              grid-template-columns: repeat(2, 1fr);
             }
           }
           @media (max-width: 479px) {
@@ -674,6 +671,12 @@ figure {
             }
             .home-page-icon12 {
               fill: var(--dl-color-gray-white);
+            }
+            .home-page-container5 {
+              grid-template-columns: repeat(1, 1fr);
+            }
+            .home-page-image2 {
+              height: 300px;
             }
           }
         `}

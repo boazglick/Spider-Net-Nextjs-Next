@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqLlResource from '../../resources/attachment-page-initial-props-tq_ll'
+import attachmentPageInitialPropsTqMyResource from '../../resources/attachment-page-initial-props-tq_my'
 
 const Attachment = (props) => {
   return (
@@ -16,21 +16,22 @@ const Attachment = (props) => {
             property="og:title"
             content="Attachment - SpiderNet Nextjs new"
           />
-          <meta name="robots" content="noindex" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(AttachmentEntities) => (
-                  <>
-                    <div className="attachment-container1">
-                      <h1>{AttachmentEntities?.title?.rendered}</h1>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(AttachmentEntities) => (
+                    <>
+                      <div className="attachment-container2">
+                        <h1>{AttachmentEntities?.title?.rendered}</h1>
+                      </div>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.attachmentEntities}
@@ -48,7 +49,7 @@ const Attachment = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .attachment-container1 {
+          .attachment-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -73,7 +74,7 @@ export default Attachment
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqLlResource({
+    const response = await attachmentPageInitialPropsTqMyResource({
       ...context?.params,
     })
     if (!response) {

@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import attachmentPageInitialPropsTqJvResource from '../../../resources/attachment-page-initial-props-tq_jv'
-import attachmentPageInitialPathsTqPsResource from '../../../resources/attachment-page-initial-paths-tq_ps'
+import attachmentPageInitialPropsTq9oResource from '../../../resources/attachment-page-initial-props-tq_9o'
+import attachmentPageInitialPathsTqXtResource from '../../../resources/attachment-page-initial-paths-tq_xt'
 
 const Attachment1 = (props) => {
   return (
@@ -17,21 +17,22 @@ const Attachment1 = (props) => {
             property="og:title"
             content="Attachment - SpiderNet Nextjs new"
           />
-          <meta name="robots" content="noindex" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(AttachmentEntities) => (
-                  <>
-                    <div className="attachment1-container1">
-                      <h1>{AttachmentEntities?.title?.rendered}</h1>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(AttachmentEntities) => (
+                    <>
+                      <div className="attachment1-container2">
+                        <h1>{AttachmentEntities?.title?.rendered}</h1>
+                      </div>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.attachmentEntities}
@@ -49,7 +50,7 @@ const Attachment1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .attachment1-container1 {
+          .attachment1-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -74,7 +75,7 @@ export default Attachment1
 
 export async function getStaticProps(context) {
   try {
-    const response = await attachmentPageInitialPropsTqJvResource({
+    const response = await attachmentPageInitialPropsTq9oResource({
       ...context?.params,
     })
     if (!response) {
@@ -98,7 +99,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await attachmentPageInitialPathsTqPsResource({})
+    const response = await attachmentPageInitialPathsTqXtResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)

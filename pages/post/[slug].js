@@ -11,8 +11,8 @@ import Script from 'dangerous-html/react'
 import PropTypes from 'prop-types'
 
 import Footer from '../../components/footer'
-import postPageInitialPropsTqL5Resource from '../../resources/post-page-initial-props-tq_l5'
-import postPageInitialPathsTq3eResource from '../../resources/post-page-initial-paths-tq_3e'
+import postPageInitialPropsTqZzResource from '../../resources/post-page-initial-props-tq_zz'
+import postPageInitialPathsTqRcResource from '../../resources/post-page-initial-paths-tq_rc'
 
 const Post11 = (props) => {
   useEffect(() => import('@lottiefiles/lottie-player'), [])
@@ -20,8 +20,10 @@ const Post11 = (props) => {
     <>
       <div className="post11-container">
         <Head>
-          <title>Post1 - SpiderNet Nextjs new</title>
-          <meta property="og:title" content="Post1 - SpiderNet Nextjs new" />
+          <title></title>
+          <meta name="description" content />
+          <meta property="og:title" content />
+          <meta property="og:description" content />
         </Head>
         <header data-thq="thq-navbar" className="post11-navbar-interactive">
           <Link href="/">
@@ -465,9 +467,18 @@ const Post11 = (props) => {
             line-height: 2;
             margin-bottom: var(--dl-space-space-fourunits);
           }
+          @media (max-width: 1200px) {
+            .post11-text2 {
+              padding: var(--dl-space-space-unit);
+              font-size: 3em;
+            }
+          }
           @media (max-width: 991px) {
             .post11-image {
               height: 3rem;
+            }
+            .post11-text2 {
+              padding: var(--dl-space-space-unit);
             }
           }
           @media (max-width: 767px) {
@@ -504,6 +515,9 @@ const Post11 = (props) => {
             .post11-link5 {
               margin-left: 0;
               margin-bottom: var(--dl-space-space-unit);
+            }
+            .post11-text2 {
+              padding: var(--dl-space-space-unit);
             }
           }
           @media (max-width: 479px) {
@@ -547,6 +561,10 @@ const Post11 = (props) => {
             .post11-icon12 {
               fill: var(--dl-color-gray-white);
             }
+            .post11-text2 {
+              padding: var(--dl-space-space-unit);
+              font-size: 3em;
+            }
           }
         `}
       </style>
@@ -566,7 +584,7 @@ export default Post11
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqL5Resource({
+    const response = await postPageInitialPropsTqZzResource({
       ...context?.params,
     })
     if (!response?.data?.[0]) {
@@ -590,7 +608,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTq3eResource({})
+    const response = await postPageInitialPathsTqRcResource({})
     return {
       paths: (response || []).map((item) => {
         return {

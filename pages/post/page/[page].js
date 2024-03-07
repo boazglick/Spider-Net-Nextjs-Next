@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { DataProvider, Repeater } from '@teleporthq/react-components'
 import PropTypes from 'prop-types'
 
-import postPageInitialPropsTqRJResource from '../../../resources/post-page-initial-props-tq_r-j'
-import postPageInitialPathsTqCwResource from '../../../resources/post-page-initial-paths-tq_cw'
+import postPageInitialPropsTqAhResource from '../../../resources/post-page-initial-props-tq_ah'
+import postPageInitialPathsTqGwResource from '../../../resources/post-page-initial-paths-tq_gw'
 
 const Post1 = (props) => {
   return (
@@ -14,21 +14,22 @@ const Post1 = (props) => {
         <Head>
           <title>Post - SpiderNet Nextjs new</title>
           <meta property="og:title" content="Post - SpiderNet Nextjs new" />
-          <meta name="robots" content="noindex" />
         </Head>
         <DataProvider
           renderSuccess={(params) => (
             <>
-              <Repeater
-                items={params}
-                renderItem={(PostEntities) => (
-                  <>
-                    <div className="post1-container1">
-                      <h1>{PostEntities?.title?.rendered}</h1>
-                    </div>
-                  </>
-                )}
-              />
+              <div>
+                <Repeater
+                  items={params}
+                  renderItem={(PostEntities) => (
+                    <>
+                      <div className="post1-container2">
+                        <h1>{PostEntities?.title?.rendered}</h1>
+                      </div>
+                    </>
+                  )}
+                />
+              </div>
             </>
           )}
           initialData={props.postEntities}
@@ -46,7 +47,7 @@ const Post1 = (props) => {
             align-items: center;
             flex-direction: column;
           }
-          .post1-container1 {
+          .post1-container2 {
             gap: 12px;
             width: 100%;
             display: flex;
@@ -71,7 +72,7 @@ export default Post1
 
 export async function getStaticProps(context) {
   try {
-    const response = await postPageInitialPropsTqRJResource({
+    const response = await postPageInitialPropsTqAhResource({
       ...context?.params,
     })
     if (!response) {
@@ -95,7 +96,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   try {
-    const response = await postPageInitialPathsTqCwResource({})
+    const response = await postPageInitialPathsTqGwResource({})
     const headers = Object.fromEntries(response)
     const totalCount = headers?.['x-wp-total']
     const pagesCount = Math.ceil(totalCount / 10)
