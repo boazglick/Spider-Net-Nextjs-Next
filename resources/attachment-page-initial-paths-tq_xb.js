@@ -1,6 +1,6 @@
 export default async function (params = {}) {
   const urlParams = {
-    per_page: 1,
+    per_page: '100',
   }
   const data = await fetch(
     `${process.env.CMS_URL}/wp-json/wp/v2/media?${new URLSearchParams(
@@ -13,6 +13,6 @@ export default async function (params = {}) {
       },
     }
   )
-  const response = data.headers
+  const response = await data.json()
   return response
 }

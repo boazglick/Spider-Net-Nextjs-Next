@@ -3,7 +3,7 @@ export default async function (params = {}) {
     per_page: 1,
   }
   const data = await fetch(
-    `${process.env.CMS_URL}/wp-json/wp/v2/media?${new URLSearchParams(
+    `${process.env.CMS_URL}/wp-json/wp/v2/posts?${new URLSearchParams(
       urlParams
     )}`,
     {

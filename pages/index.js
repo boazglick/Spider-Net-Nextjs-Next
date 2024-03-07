@@ -141,7 +141,7 @@ const HomePage = (props) => {
                   items={params}
                   renderItem={(context_y2hhze) => (
                     <>
-                      <Link href={`/post/${context_y2hhze?.date}`}>
+                      <Link href={`/post/${context_y2hhze?.slug}`}>
                         <a>
                           <div className="home-page-container6">
                             <div className="home-page-image1">
